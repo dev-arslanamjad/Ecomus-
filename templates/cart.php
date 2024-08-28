@@ -53,7 +53,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tf-mini-cart-bottom">oasidaoisjd
+                    <div class="tf-mini-cart-bottom">
                         <div class="tf-mini-cart-bottom-wrap">
                             <div class="tf-cart-totals-discounts">
                                 <div class="tf-cart-total">Subtotal</div>
