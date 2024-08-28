@@ -15,6 +15,5 @@
     <link rel="shortcut icon" href="assets/frontend/images/logo/favicon.png">
     <link rel="apple-touch-icon-precomposed" href="assets/frontend/images/logo/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://www.paypal.com/sdk/js?client-id=AXHQoXDXD7wkgthihmLQ5l0q11CLmXtGHwWn3GIDeETJNuhTtGYEK9jHS5MGYRIrKoqlX22wrPx4Ek6y&currency=USD"></script>
-
+    <script src="https://www.paypal.com/sdk/js?client-id=your-client-id&currency=USD"></script>
 </head>

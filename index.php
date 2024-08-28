@@ -229,9 +229,6 @@ if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']) {
 </section>
 <!-- /Categories -->
 <!-- Seller -->
-
-
-
 <section class="flat-spacing-5 pt_0 flat-seller">
     <div class="container">
         <div class="flat-title">
@@ -260,12 +257,6 @@ if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']) {
                                 <span class="tooltip">Quick View</span>
                             </a>
                         </div>
-                        <!-- <div class="size-list">
-                            <span>S</span>
-                            <span>M</span>
-                            <span>L</span>
-                            <span>XL</span>
-                        </div> -->
                     </div>
                     <div class="card-product-info">
                         <a href="" class="title link"><?php echo $row['name']; ?><span> - <?php echo $row['model']; ?></span></a>
@@ -438,51 +429,6 @@ if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']) {
         </div>
     </div>
 </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

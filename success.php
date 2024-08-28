@@ -1,30 +1,62 @@
 <?php
 // success.php
+session_start();
+require_once 'connection.php'; // Include the database connection file
+
 $orderID = $_GET['orderID'] ?? '';
 $payerID = $_GET['payerID'] ?? '';
 $paymentID = $_GET['paymentID'] ?? '';
 $details = $_GET['details'] ?? '';
 
 if ($orderID) {
-    // You would typically fetch transaction details from your database here using $orderID.
-    // For now, we'll just display the information.
-
+    $order_id = $orderID;
     echo "<h1>Thank you for your purchase!</h1>";
-    echo "<p>Order ID: " . htmlspecialchars($orderID) . "</p><br>";
-    echo "<p>Payer ID: " . htmlspecialchars($payerID) . "</p><br>";
-    echo "<p>Payment ID: " . htmlspecialchars($paymentID) . "</p><br>";
-    
-    // If you need to decode and display transaction details
-    // Note: Details are usually a JSON string, so you might want to decode and format it if needed
-    $detailsDecoded = json_decode($details, true);
+    // Assuming you have the 'details' parameter in the URL as a JSON string
+    $details_json = $_GET['details'];
+    // Decode the JSON
+    $details = json_decode($details_json, true);
     if (json_last_error() === JSON_ERROR_NONE) {
-        echo "<p>Details: " . htmlspecialchars(print_r($detailsDecoded, true)) . "</p><br>";
+        if (isset($details['purchase_units'][0]['amount'])) {
+            $amount = $details['purchase_units'][0]['amount']; // e.g., USD
+            $user_id = isset($_GET['userid']) ? $_GET['userid'] : 1;
+            $value = $amount['value'];
+
+            $sql = "INSERT INTO `order` (user_id, transaction_id, total)
+            VALUES ('$user_id','$paymentID', '$value')";
+            $result = mysqli_query($conn, $sql);
+            if ($result) {
+                $last_id = mysqli_insert_id($conn);
+                /*----------------------------------- echo 'added to orders'; ------------------------------------------*/
+            } else {
+                die("Error: " . mysqli_error($conn));
+            }
+        } else {
+            echo "Amount details not found.";
+        }
     } else {
-        echo "<p>Details: " . htmlspecialchars($details) . "</p><br>";
+        echo "Error decoding JSON: " . json_last_error_msg();
+    }
+    // Insert order items
+    if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
+        foreach ($_SESSION['cart'] as $item) {
+            $total_price = $item['price'] * $item['quantity'];
+
+            $sql = "INSERT INTO order_items (order_id, product_id, product_name, price, quantity, total) 
+                    VALUES (?, ?, ?, ?, ?, ?)";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("iisdid", $last_id, $item['id'], $item['name'], $item['price'], $item['quantity'], $total_price);
+            $stmt->execute();
+        }
     }
 
-    // Display more transaction details if available
+    // Clear the cart
+    unset($_SESSION['cart']);
+    $_SESSION['response'] = 'Your Order has been Placed Successfully';
+    header('location:index.php');
+    /*------------------------------- echo "<p>Your order has been processed successfully!</p>"; ---------------------*/
 } else {
     echo "<h1>Transaction failed.</h1>";
 }
-?>
+
+// Close the database connection
+$conn->close();

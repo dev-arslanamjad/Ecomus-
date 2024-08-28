@@ -1,14 +1,27 @@
 <?php
-// save_transaction.php
 header('Content-Type: application/json');
 
-$data = json_decode(file_get_contents('php://input'), true);
+// Fetch the POST data
+$input = file_get_contents('php://input');
+$data = json_decode($input, true);
 
-echo $orderID = $data['orderID'];
-echo $payerID = $data['payerID'];
-echo $paymentID = $data['paymentID'];
-echo $details = json_encode($data['details']);
+// Check if JSON decoding failed
+if (json_last_error() !== JSON_ERROR_NONE) {
+    echo json_encode(['success' => false, 'message' => 'JSON decoding error: ' . json_last_error_msg()]);
+    exit;
+}
 
-$response = array('success' => true);
+// Check if the required data is available
+if (isset($data['orderID'], $data['payerID'], $data['details'])) {
+    // Process the data (e.g., save to the database)
 
+    // Simulate success for testing purposes
+    $response = ['success' => true];
+} else {
+    // If data is missing, return an error
+    $response = ['success' => false, 'message' => 'Missing required data'];
+}
+
+// Output the JSON response
 echo json_encode($response);
+?>
