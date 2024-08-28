@@ -18,7 +18,8 @@ if ($orderID) {
     if (json_last_error() === JSON_ERROR_NONE) {
         if (isset($details['purchase_units'][0]['amount'])) {
             $amount = $details['purchase_units'][0]['amount']; // e.g., USD
-            $user_id = isset($_GET['userid']) ? $_GET['userid'] : 1;
+            $user_id =  $_SESSION['userid'];
+           
             $value = $amount['value'];
 
             $sql = "INSERT INTO `order` (user_id, transaction_id, total)

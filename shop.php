@@ -14,7 +14,7 @@ $result = mysqli_query($conn, $sql);
         </div>
     </div>
 </div>
-<!-- PRODUCTS    ---------------------------------- -->
+<!-- PRODUCTS    ------------------------------------>
 <section class="flat-spacing-1">
     <div class="container">
         <div class="tf-shop-control grid-3 align-items-center">
@@ -1148,11 +1148,9 @@ $result = mysqli_query($conn, $sql);
 include('templates/cart.php');
 ?>
 <!-- /shoppingCart -->
-<!-- footer scripts
+<!-- // footer scripts// -->
 <?php
 include('templates/footerscripts.php');
 ?>
-
--->
 </body>
 </html>

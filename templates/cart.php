@@ -29,13 +29,13 @@
                                 ?>
                                     <div class="tf-mini-cart-item" id="cart-item-<?php echo $product['id']; ?>">
                                         <div class="tf-mini-cart-image">
-                                            <a href="">
+                                            <a href="product_detail.php?id=<?php echo $product['id'] ?>">
                                                 <img src="admin/<?php echo $product['image']; ?>"
                                                     alt="<?php echo $product['name']; ?>">
                                             </a>
                                         </div>
                                         <div class="tf-mini-cart-info">
-                                            <a class="title link" href=""><?php echo $product['name']; ?></a>
+                                            <a class="title link" href="product_detail.php?id=<?php echo $product['id'] ?>"><?php echo $product['name']; ?></a>
                                             <div class="meta-variant"><?php echo $product['model']; ?></div>
                                             <div class="price fw-6"><?php echo $product['price']; ?>$</div>
                                             <div class="tf-mini-cart-btns">
