@@ -87,23 +87,9 @@
                                         <div id="paypal-button-container"></div>
                                     </ul>
                                 </div>
-                                <div class="dropdown col-12 mt-1">
-                                    <button type="button"
-                                        class="tf-btn btn-fill justify-content-center fw-6 fs-16 w-100 animate-hover-btn dropdown-toggle animate__animated animate__fadeIn"
-                                        id="paymentDropdown" data-bs-toggle="dropdown" aria-expanded="false"><span>Pay with <img
-                                                width="55px" src="assets/frontend/images/payments/stripe.png"
-                                                alt=""></span></button>
-                                    <ul class="dropdown-menu w-100 animate__animated animate__fadeIn"
-                                        aria-labelledby="paymentDropdown">
-                                        <li class="mb-1 animate__animated animate__fadeInUp">
-                                            <a href="stripe_form.php"
-                                                class="tf-btn btn-fill animate-hover-btn radius-3 w-100 justify-content-center"
-                                                style="background-color: #000000 !important; border: unset;"><span>Pay with <img
-                                                        width="55px" src="assets/frontend/images/payments/stripe.png"
-                                                        alt=""></span></a>
-                                        </li>
-                                    </ul>
-                                </div>
+                                <button class="w-100 tf-btn btn-fill justify-content-center fw-6 fs-16 flex-grow-1 animate-hover-btn dropdown-toggle mt-1" type="button" style="background-color: #000000 !important; border: unset;">
+                                    <a href="stripe_form.php" class="dropdown-item"><span>Pay with <img width="55px" src="assets/frontend/images/payments/stripe.png" alt=""></span></a>
+                                </button>   
                             <?php else: ?>
                                 <div class="dropdown col-12">
                                     <button type="button"
@@ -188,8 +174,7 @@
             });
         },
         onError: function(err) {
-            console.error(err);
-            alert('An error occurred during the transaction.');
+
         }
     }).render('#paypal-button-container');
 </script>
