@@ -4,6 +4,7 @@ include('connection.php');
 
 $id = $_POST['id'];
 $name = $_POST['name'];
+$slug = strtolower(str_replace(' ', '-', $name));
 $model = $_POST['model'];
 $description = $_POST['discription']; // Fixed typo in 'description'
 $price = $_POST['price'];
@@ -38,9 +39,9 @@ if (!empty($_FILES['image']['name'])) {
 $available = ($available == 1) ? "yes" : "no";
 
 // Prepare and execute SQL statement
-$sql = "UPDATE products SET name = ?, image = ?, model = ?, discription = ?, price = ?, quantity = ?, available = ? WHERE id = ?";
+$sql = "UPDATE products SET name = ?, slug = ?, image = ?, model = ?, discription = ?, price = ?, quantity = ?, available = ? WHERE id = ?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("sssssssi", $name, $image, $model, $description, $price, $quantity, $available, $id);
+$stmt->bind_param("sssssssii", $name, $slug, $image, $model, $description, $price, $quantity, $available, $id);
 
 if ($stmt->execute()) {
     $_SESSION['response'] = "Product updated successfully";

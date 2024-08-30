@@ -243,7 +243,7 @@ if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']) {
             ?>
                 <div class="card-product fl-item">
                     <div class="card-product-wrapper">
-                        <div href="" class="product-img">
+                        <div  class="product-img">
                             <img class="" data-src="admin/<?php echo $row['image']; ?>" src="admin/<?php echo $row['image']; ?>" style="width: 300px; height: 300px; object-fit: contain;">
                         </div>
                         <div class="list-product-btn">
@@ -259,7 +259,7 @@ if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']) {
                         </div>
                     </div>
                     <div class="card-product-info">
-                        <a href="" class="title link"><?php echo $row['name']; ?><span> - <?php echo $row['model']; ?></span></a>
+                        <a href="product_detail.php?id=<?php echo $row['id']; ?>&<?php echo $row['slug']; ?>" class="title link"><?php echo $row['name']; ?><span> - <?php echo $row['model']; ?></span></a>
                         <span class="price"><?php echo $row['price']; ?>$</span>
                         <?php if ($row['available'] == 'Yes') { ?>
                             <span class="badge bg-success text-white" style="width: 70px;">Available</span>
@@ -297,7 +297,7 @@ if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']) {
                                                 <img class="w-100" src="admin/<?php echo $row['image']; ?>" alt="">
                                             </div>
                                             <div class="content">
-                                                <h5><a href="product_detail.php?id=<?php echo $row['id'] ?>"><?php echo $row['name']; ?></a></h5>
+                                                <h5><a href="product_detail.php?id=<?php echo $row['id']; ?>&<?php echo $row['slug']; ?>"><?php echo $row['name']; ?></a></h5>
                                                 <span><?php echo $row['model'] ?></span>
                                                 <div class="tf-product-info-price">
                                                     <div class="price"><?php echo $row['price']; ?>$</div>
@@ -415,7 +415,7 @@ if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']) {
                                                     <p> <?php echo $row['discription']; ?></p>
                                                 </div>
                                                 <div>
-                                                    <a href="product_detail.php?id=<?php echo $row['id']; ?>" class="tf-btn fw-6 btn-line">View full details<i class="icon icon-arrow1-top-left"></i></a>
+                                                    <a href="product_detail.php?id=<?php echo $row['id']; ?>&<?php echo $row['slug']; ?>" class="tf-btn fw-6 btn-line">View full details<i class="icon icon-arrow1-top-left"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -915,223 +915,7 @@ include('templates/footer.php');
 <!-- /toolbar-bottom -->
 
 <!-- mobile menu -->
-<div class="offcanvas offcanvas-start canvas-mb" id="mobileMenu">
-    <span class="icon-close icon-close-popup" data-bs-dismiss="offcanvas" aria-label="Close"></span>
-    <div class="mb-canvas-content">
-        <div class="mb-body">
-            <ul class="nav-ul-mb" id="wrapper-menu-navigation">
-                <li class="nav-mb-item">
-                    <a href="#dropdown-menu-one" class="collapsed mb-menu-link current" data-bs-toggle="collapse" aria-expanded="true" aria-controls="dropdown-menu-one">
-                        <span>Home</span>
-                        <span class="btn-open-sub"></span>
-                    </a>
-                    <div id="dropdown-menu-one" class="collapse">
-                        <ul class="sub-nav-menu">
 
-                            <li><a href="home-04.php" class="sub-nav-link">Home Fashion 04</a></li>
-                        </ul>
-                    </div>
-
-                </li>
-                <li class="nav-mb-item">
-                    <a href="#dropdown-menu-two" class="collapsed mb-menu-link current" data-bs-toggle="collapse" aria-expanded="true" aria-controls="dropdown-menu-two">
-                        <span>Shop</span>
-                        <span class="btn-open-sub"></span>
-                    </a>
-                    <div id="dropdown-menu-two" class="collapse">
-                        <ul class="sub-nav-menu" id="sub-menu-navigation">
-                            <li><a href="#sub-shop-one" class="sub-nav-link collapsed" data-bs-toggle="collapse" aria-expanded="true" aria-controls="sub-shop-one">
-                                    <span>Shop layouts</span>
-                                    <span class="btn-open-sub"></span>
-                                </a>
-                                <div id="sub-shop-one" class="collapse">
-                                    <ul class="sub-nav-menu sub-menu-level-2">
-                                        <li><a href="shop-default.php" class="sub-nav-link">Default</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li>
-                                <a href="#sub-shop-two" class="sub-nav-link collapsed" data-bs-toggle="collapse" aria-expanded="true" aria-controls="sub-shop-two">
-                                    <span>Features</span>
-                                    <span class="btn-open-sub"></span>
-                                </a>
-                                <div id="sub-shop-two" class="collapse">
-                                    <ul class="sub-nav-menu sub-menu-level-2">
-                                        <li><a href="shop-link.php" class="sub-nav-link">Pagination links</a></li>
-                                        <li><a href="shop-loadmore.php" class="sub-nav-link">Pagination loadmore</a></li>
-                                        <li><a href="shop-infinite-scrolling.php" class="sub-nav-link">Pagination infinite scrolling</a></li>
-                                        <li><a href="shop-filter-sidebar.php" class="sub-nav-link">Filter sidebar</a></li>
-                                        <li><a href="shop-filter-hidden.php" class="sub-nav-link">Filter hidden</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li>
-                                <a href="#sub-shop-three" class="sub-nav-link collapsed" data-bs-toggle="collapse" aria-expanded="true" aria-controls="sub-shop-three">
-                                    <span>Product styles</span>
-                                    <span class="btn-open-sub"></span>
-                                </a>
-                                <div id="sub-shop-three" class="collapse">
-                                    <ul class="sub-nav-menu sub-menu-level-2">
-                                        <li><a href="shop.phps" class="sub-nav-link">Product style list</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-mb-item">
-                    <a href="#dropdown-menu-three" class="collapsed mb-menu-link current" data-bs-toggle="collapse" aria-expanded="true" aria-controls="dropdown-menu-three">
-                        <span>Products</span>
-                        <span class="btn-open-sub"></span>
-                    </a>
-                    <div id="dropdown-menu-three" class="collapse">
-                        <ul class="sub-nav-menu" id="sub-menu-navigation">
-                            <li>
-                                <a href="#sub-product-one" class="sub-nav-link collapsed" data-bs-toggle="collapse" aria-expanded="true" aria-controls="sub-product-one">
-                                    <span>Product layouts</span>
-                                    <span class="btn-open-sub"></span>
-                                </a>
-                                <div id="sub-product-one" class="collapse">
-                                    <ul class="sub-nav-menu sub-menu-level-2">
-                                        <li><a href="" class="sub-nav-link">Product default</a></li>
-                                        <li><a href="product-grid-1.php" class="sub-nav-link">Product grid 1</a></li>
-                                        <li><a href="product-grid-2.php" class="sub-nav-link">Product grid 2</a></li>
-                                        <li><a href="product-stacked.php" class="sub-nav-link">Product stacked</a></li>
-                                        <li><a href="product-right-thumbnails.php" class="sub-nav-link">Product right thumbnails</a></li>
-                                        <li><a href="product-bottom-thumbnails.php" class="sub-nav-link">Product bottom thumbnails</a></li>
-                                        <li><a href="product-drawer-sidebar.php" class="sub-nav-link">Product drawer sidebar</a></li>
-                                        <li><a href="product-description-accordion.php" class="sub-nav-link">Product description accordion</a></li>
-                                        <li><a href="product-description-list.php" class="sub-nav-link">Product description list</a></li>
-                                        <li><a href="product-description-vertical.php" class="sub-nav-link">Product description vertical</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li>
-                                <a href="#sub-product-two" class="sub-nav-link collapsed" data-bs-toggle="collapse" aria-expanded="true" aria-controls="sub-product-two">
-                                    <span>Product details</span>
-                                    <span class="btn-open-sub"></span>
-                                </a>
-
-                            </li>
-                            <li>
-                                <a href="#sub-product-three" class="sub-nav-link collapsed" data-bs-toggle="collapse" aria-expanded="true" aria-controls="sub-product-three">
-                                    <span>Product swatchs</span>
-                                    <span class="btn-open-sub"></span>
-                                </a>
-                                <div id="sub-product-three" class="collapse">
-                                    <ul class="sub-nav-menu sub-menu-level-2">
-                                        <li><a href="product-color-swatch.php" class="sub-nav-link">Product color swatch</a></li>
-                                        <li><a href="product-rectangle.php" class="sub-nav-link">Product rectangle</a></li>
-                                        <li><a href="product-rectangle-color.php" class="sub-nav-link">Product rectangle color</a></li>
-                                        <li><a href="product-swatch-image.php" class="sub-nav-link">Product swatch image</a></li>
-                                        <li><a href="product-swatch-image-rounded.php" class="sub-nav-link">Product swatch image rounded</a></li>
-                                        <li><a href="product-swatch-dropdown.php" class="sub-nav-link">Product swatch dropdown</a></li>
-                                        <li><a href="product-swatch-dropdown-color.php" class="sub-nav-link">Product swatch dropdown color</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li>
-                                <a href="#sub-product-four" class="sub-nav-link collapsed" data-bs-toggle="collapse" aria-expanded="true" aria-controls="sub-product-four">
-                                    <span>Product features</span>
-                                    <span class="btn-open-sub"></span>
-                                </a>
-                                <div id="sub-product-four" class="collapse">
-                                    <ul class="sub-nav-menu sub-menu-level-2">
-                                        <li><a href="product-frequently-bought-together.php" class="sub-nav-link">Frequently bought together</a></li>
-                                        <li><a href="product-frequently-bought-together-2.php" class="sub-nav-link">Frequently bought together 2</a></li>
-                                        <li><a href="product-upsell-features.php" class="sub-nav-link">Product upsell features</a></li>
-                                        <li><a href="product-pre-orders.php" class="sub-nav-link">Product pre-orders</a></li>
-                                        <li><a href="product-notification.php" class="sub-nav-link">Back in stock notification</a></li>
-                                        <li><a href="product-pickup.php" class="sub-nav-link">Product pickup</a></li>
-                                        <li><a href="product-images-grouped.php" class="sub-nav-link">Variant images grouped</a></li>
-                                        <li><a href="product-complimentary.php" class="sub-nav-link">Complimentary products</a></li>
-                                        <li><a href="product-quick-order-list.php" class="sub-nav-link line-clamp">Quick order list<div class="demo-label"><span class="demo-new">New</span></div></a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-mb-item">
-                    <a href="#dropdown-menu-four" class="collapsed mb-menu-link current" data-bs-toggle="collapse" aria-expanded="true" aria-controls="dropdown-menu-four">
-                        <span>Pages</span>
-                        <span class="btn-open-sub"></span>
-                    </a>
-                    <div id="dropdown-menu-four" class="collapse">
-                        <ul class="sub-nav-menu" id="sub-menu-navigation">
-                            <li><a href="about-us.php" class="sub-nav-link">About us</a></li>
-                            <li><a href="brands.php" class="sub-nav-link line-clamp">Brands<div class="demo-label"><span class="demo-new">New</span></div></a></li>
-                            <li><a href="brands-v2.php" class="sub-nav-link">Brands V2</a></li>
-                            <li><a href="contact-1.php" class="sub-nav-link">Contact 1</a></li>
-                            <li><a href="contact-2.php" class="sub-nav-link">Contact 2</a></li>
-                            <li><a href="faq-1.php" class="sub-nav-link">FAQ 01</a></li>
-                            <li><a href="faq-2.php" class="sub-nav-link">FAQ 02</a></li>
-                            <li><a href="our-store.php" class="sub-nav-link">Our store</a></li>
-                            <li><a href="store-locations.php" class="sub-nav-link">Store locator</a></li>
-                            <li><a href="timeline.php" class="sub-nav-link line-clamp">Timeline<div class="demo-label"><span class="demo-new">New</span></div></a></li>
-                            <li><a href="view-cart.php" class="sub-nav-link line-clamp">View cart</a></li>
-                        </ul>
-                    </div>
-
-                </li>
-                <li class="nav-mb-item">
-                    <a href="#dropdown-menu-five" class="collapsed mb-menu-link current" data-bs-toggle="collapse" aria-expanded="true" aria-controls="dropdown-menu-five">
-                        <span>Blog</span>
-                        <span class="btn-open-sub"></span>
-                    </a>
-                    <div id="dropdown-menu-five" class="collapse">
-                        <ul class="sub-nav-menu">
-                            <li><a href="blog-grid.php" class="sub-nav-link">Grid layout</a></li>
-                            <li><a href="blog-sidebar-left.php" class="sub-nav-link">Left sidebar</a></li>
-                            <li><a href="blog-sidebar-right.php" class="sub-nav-link">Right sidebar</a></li>
-                            <li><a href="blog-list.php" class="sub-nav-link">Blog list</a></li>
-                            <li><a href="blog-detail.php" class="sub-nav-link">Single Post</a></li>
-                        </ul>
-                    </div>
-
-                </li>
-                <li class="nav-mb-item">
-                    <a href="#" class="mb-menu-link">Buy now</a>
-                </li>
-            </ul>
-            <div class="mb-other-content">
-                <div class="d-flex group-icon">
-                    <a href="wishlist.php" class="site-nav-icon"><i class="icon icon-heart"></i>Wishlist</a>
-                    <a href="#" class="site-nav-icon"><i class="icon icon-search"></i>Search</a>
-                </div>
-                <div class="mb-notice">
-                    <a href="contact-1.php" class="text-need">Need help ?</a>
-                </div>
-                <ul class="mb-info">
-                    <li>Address: 1234 Fashion Street, Suite 567, <br> New York, NY 10001</li>
-                    <li>Email: <b>info@fashionshop.com</b></li>
-                    <li>Phone: <b>(212) 555-1234</b></li>
-                </ul>
-            </div>
-        </div>
-        <div class="mb-bottom">
-            <a href="login.php" class="site-nav-icon"><i class="icon icon-account"></i>Login</a>
-            <div class="bottom-bar-language">
-                <div class="tf-currencies">
-                    <select class="image-select center style-default type-currencies">
-                        <option data-thumbnail="assets/frontend/images/country/fr.svg">EUR <span>€ | France</span></option>
-                        <option data-thumbnail="assets/frontend/images/country/de.svg">EUR <span>€ | Germany</span></option>
-                        <option selected data-thumbnail="assets/frontend/images/country/us.svg">USD <span>$ | United States</span></option>
-                        <option data-thumbnail="assets/frontend/images/country/vn.svg">VND <span>₫ | Vietnam</span></option>
-                    </select>
-                </div>
-                <div class="tf-languages">
-                    <select class="image-select center style-default type-languages">
-                        <option>English</option>
-                        <option>العربية</option>
-                        <option>简体中文</option>
-                        <option>اردو</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 <!-- /mobile menu -->
 
 

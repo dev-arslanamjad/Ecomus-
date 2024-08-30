@@ -144,7 +144,7 @@ $result2 = $conn->query($query);
                                                                 <th data-toggle="true">Product Name</th>
                                                                 <th data-toggle="true">Product Image</th>
                                                                 <th data-hide="phone">Model</th>
-                                                                <th data-hide="all">Description</th>
+                                                                
                                                                 <th data-hide="phone">Price</th>
                                                                 <th data-hide="phone,tablet">Quantity</th>
                                                                 <th data-hide="phone">Available</th>
@@ -158,7 +158,6 @@ $result2 = $conn->query($query);
                                                                 echo "<td>" . $row['name'] . "</td>";
                                                                 echo "<td><img src='" . $row['image'] . "' width='100' height='100'></td>";
                                                                 echo "<td>" . $row['model'] . "</td>";
-                                                                echo "<td>" . $row['discription'] . "</td>";
                                                                 echo "<td>$" . $row['price'] . "</td>";
                                                                 echo "<td>" . $row['quantity'] . "</td>";
                                                                 echo "<td>" . $row['available'] . "</td>";

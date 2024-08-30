@@ -12,6 +12,7 @@ $result = $stmt->get_result();
 $product = $result->fetch_assoc();
 if ($product) {
     $name = $product['name'];
+    $slug = $product['slug'];
     $image = $product['image'];
     $model = $product['model'];
     $discription = $product['discription'];
@@ -86,6 +87,7 @@ if ($product) {
                                         <label for="model">Model</label>
                                         <input type="text" class="form-control" id="model" name="model" value="<?php echo htmlspecialchars($model); ?>" required>
                                     </div>
+                                    
                                     <div class="form-group">
                                         <label for="discription">Description</label>
                                         <textarea class="form-control" id="discription" name="discription" rows="3" required><?php echo htmlspecialchars($discription); ?></textarea>

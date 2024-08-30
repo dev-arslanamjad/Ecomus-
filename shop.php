@@ -46,7 +46,7 @@ $result = mysqli_query($conn, $sql);
                 <!-- card product -->
                 <div class="card-product d-flex flex-column h-100">
                     <div class="card-product-wrapper flex-grow-1">
-                        <a href="product_detail.php?id=<?php echo $row['id'] ?>" class="product-img d-block h-100">
+                        <a href="product_detail.php?id=<?php echo $row['id']; ?>&<?php echo $row['slug']; ?>" class="product-img d-block h-100">
                             <img class="lazyload img-product w-100 h-100 object-fit-cover" data-src="admin/<?php echo $row['image'] ?>" src="admin/<?php echo $row['image'] ?>" alt="<?php echo $row['name'] ?>">
                             <img class="lazyload img-hover w-100 h-100 object-fit-cover" data-src="admin/<?php echo $row['image'] ?>" src="admin/<?php echo $row['image'] ?>" alt="<?php echo $row['name'] ?>">
                         </a>
@@ -67,7 +67,7 @@ $result = mysqli_query($conn, $sql);
                         </div>
                     </div>
                     <div class="card-product-info">
-                        <a href="product-detail.php" class="title link"><?php echo $row['name'] ?></a>
+                        <a href="product_detail.php?id=<?php echo $row['id']; ?>&<?php echo $row['slug']; ?>" class="title link"><?php echo $row['name'] ?></a>
                         <span class="price"><?php echo $row['price'] ?>$</span>
                         <p class="description"><?php echo substr($row['discription'], 0, 100) . '...'; ?></p>
                         <p class="description"></p>
@@ -108,7 +108,7 @@ $result = mysqli_query($conn, $sql);
                                             <img class="" data-src="admin/<?php echo $row['image']; ?>" src="admin/<?php echo $row['image']; ?>" style="width: 200px; height: 200px; object-fit: contain;">
                                         </div>
                                         <div class="content">
-                                            <a href="product_detail.php?id=<?php echo $row['id'] ?>">
+                                            <a href="product_detail.php?id=<?php echo $row['id']; ?>&<?php echo $row['slug']; ?>">
                                                 <h5><?php echo $row['name'] ?></h5>
                                             </a>
                                             <span><?php echo $row['model'] ?></span>
@@ -171,7 +171,7 @@ $result = mysqli_query($conn, $sql);
                                 <div class="tf-product-info-wrap position-relative">
                                     <div class="tf-product-info-list">
                                         <div class="tf-product-info-title">
-                                            <h5><a class="link" href="product_detail.php?id=<?php echo $row['id'] ?>"><?php echo $row['name'] ?></a></h5>
+                                            <h5><a class="link" href="product_detail.php?id=<?php echo $row['id']; ?>&<?php echo $row['slug']; ?>"><?php echo $row['name'] ?></a></h5>
                                         </div>
                                         <div class="tf-product-info-badges">
                                             <div class="badges text-uppercase">Best seller</div>
