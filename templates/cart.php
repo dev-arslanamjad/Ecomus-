@@ -87,9 +87,10 @@
                                         <div id="paypal-button-container"></div>
                                     </ul>
                                 </div>
-                                <button class="w-100 tf-btn btn-fill justify-content-center fw-6 fs-16 flex-grow-1 animate-hover-btn dropdown-toggle mt-1" type="button" style="background-color: #000000 !important; border: unset;">
-                                    <a href="stripe_form.php" class="dropdown-item"><span>Pay with <img width="55px" src="assets/frontend/images/payments/stripe.png" alt=""></span></a>
-                                </button>
+                                <a href="stripe_form.php" class="dropdown-item"><button class="w-100 tf-btn btn-fill justify-content-center fw-6 fs-16 flex-grow-1 animate-hover-btn dropdown-toggle mt-1" type="button" style="background-color: #000000 !important; border: unset;">
+                                        <span>Pay with <img width="55px" src="assets/frontend/images/payments/stripe.png" alt=""></span>
+                                    </button></a>
+
                             <?php else: ?>
                                 <div class="dropdown col-12">
                                     <button type="button"

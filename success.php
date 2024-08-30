@@ -1,7 +1,7 @@
 <?php
 // success.php
 session_start();
-require_once 'connection.php'; // Include the database connection file
+include 'connection.php'; 
 
 $orderID = $_GET['orderID'] ?? '';
 $payerID = $_GET['payerID'] ?? '';
@@ -11,13 +11,11 @@ $details = $_GET['details'] ?? '';
 if ($orderID) {
     $order_id = $orderID;
     echo "<h1>Thank you for your purchase!</h1>";
-    // Assuming you have the 'details' parameter in the URL as a JSON string
     $details_json = $_GET['details'];
-    // Decode the JSON
     $details = json_decode($details_json, true);
     if (json_last_error() === JSON_ERROR_NONE) {
         if (isset($details['purchase_units'][0]['amount'])) {
-            $amount = $details['purchase_units'][0]['amount']; // e.g., USD
+            $amount = $details['purchase_units'][0]['amount']; 
             $user_id =  $_SESSION['userid'];
            
             $value = $amount['value'];

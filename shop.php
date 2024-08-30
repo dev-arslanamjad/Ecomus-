@@ -136,21 +136,19 @@ $result = mysqli_query($conn, $sql);
                                         <button type="submit" class="tf-btn btn-fill justify-content-center fw-6 fs-16 flex-grow-1 animate-hover-btn "><span>Add to cart </span>
                                             <span id="subtotal_<?php echo $row['id'] ?>" class="tf-qty-price"><?php echo $row['price'] ?>.00$</span>
                                         </button>
-                                        <button class="tf-btn btn-fill justify-content-center fw-6 fs-16 flex-grow-1 animate-hover-btn dropdown-toggle mt-1" type="button" style="background-color: #000000 !important; border: unset;">
-                                                <a href="stripe_form.php" class="dropdown-item"><span>Pay with <img width="55px" src="assets/frontend/images/payments/stripe.png" alt=""></span></a>
-                                        </button>
+
                                         <div class="dropdown col-12 mt-2">
-                                            <button type="button"
+                                            <!-- <button type="button"
                                                 class="tf-btn btn-fill justify-content-center fw-6 fs-16 w-100 animate-hover-btn dropdown-toggle animate__animated animate__fadeIn"
                                                 id="paymentDropdown" data-bs-toggle="dropdown" aria-expanded="false"
                                                 style="background-color: #ffa500 !important; border: unset;"><span>Pay with <img
-                                                        src="assets/frontend/images/payments/paypal.png" alt=""></span></button>
+                                                        src="assets/frontend/images/payments/paypal.png" alt=""></span></button> -->
                                             <ul class="dropdown-menu w-100 animate__animated animate__fadeIn"
                                                 aria-labelledby="paymentDropdown">
                                                 <div id="paypal-button-container_<?php echo $row['id']; ?>"></div>
                                             </ul>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                             </form>

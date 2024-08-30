@@ -243,7 +243,7 @@ if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']) {
             ?>
                 <div class="card-product fl-item">
                     <div class="card-product-wrapper">
-                        <div  class="product-img">
+                        <div class="product-img">
                             <img class="" data-src="admin/<?php echo $row['image']; ?>" src="admin/<?php echo $row['image']; ?>" style="width: 300px; height: 300px; object-fit: contain;">
                         </div>
                         <div class="list-product-btn">
