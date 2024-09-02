@@ -163,8 +163,8 @@ $result2 = $conn->query($query);
                                                                 echo "<td>" . $row['available'] . "</td>";
                                                                 echo "<td class='text-right'>
                                                                         <div class='btn-group'>
-                                                                            <a class='btn btn btn-primary mx-2' href='editproduct.php?id=" . $row['id'] . "'>Edit</a>
-                                                                            <a class='btn btn btn-danger' href='deleteproduct.php?id=" . $row['id'] . "'>Delete</a>
+                                                                            <a class='btn btn btn-primary mx-2' href='editproduct.php?id=" . $row['id'] . "'><i class='fa-solid fa-pen'></i></a>
+                                                                            <a class='btn btn btn-danger' href='deleteproduct.php?id=" . $row['id'] . "'><i class='fa-solid fa-trash'></i></a>
                                                                         </div>
                                                                       </td>";
                                                                 echo "</tr>";
@@ -198,6 +198,8 @@ $result2 = $conn->query($query);
     <?php
     include('common/scripts.php');
     ?>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
 
 
 </body>

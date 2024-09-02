@@ -6,11 +6,11 @@ $sql = "SELECT * FROM `order`";
 $result = $conn->query($sql);
 ?>
 <style>
-    .form-control{
+    .form-control {
         background-color: #343a4033;
-}
-
+    }
 </style>
+
 <body>
     <div id="wrapper">
         <?php
@@ -65,7 +65,10 @@ $result = $conn->query($sql);
                                         <div class="col-lg-12">
                                             <div class="ibox bg-gray">
                                                 <div class="ibox-content">
-                                                    <table id="myTable" class="table table-striped" style="width:100%">
+                                                    <table id="myTable" class="table table-striped" style="width:100%; position: relative;">
+                                                        <div style="position: absolute; right: 7%; top: -1%;">
+                                                            <span>*Search using <b class="text-danger">User ID</b> only</span>
+                                                        </div>
                                                         <thead class="bg-dark text-white">
                                                             <tr>
                                                                 <th>User ID</th>
@@ -83,23 +86,23 @@ $result = $conn->query($sql);
                                                                     <td><?php echo $row['user_id']; ?></td>
                                                                     <td><?php echo $row['transaction_id']; ?></td>
                                                                     <td>$<?php echo number_format($row['total'], 2); ?></td>
-                                                                    <td><?php
-                                                                        if ($row['status'] == '0') {
-                                                                            echo "Processing";
-                                                                        } else if ($row['status'] == '1') {
-                                                                            echo "Shipped";
-                                                                        } else if ($row['status'] == '2') {
-                                                                            echo "Delivered";
-                                                                        } else if ($row['status'] == '3') {
-                                                                            echo "Declined";
-                                                                        }
-                                                                        ?></td>
+                                                                    <?php
+                                                                    if ($row['status'] == '0') { ?>
+                                                                        <td><span class='badge badge-warning'>Processing</span></td>
+
+                                                                    <?php } else if ($row['status'] == '1') { ?>
+                                                                        <td><span class='badge badge-primary'>Shipped</span></td>
+                                                                    <?php } else if ($row['status'] == '2') { ?>
+                                                                        <td><span class='badge badge-success'>Delivered</span></td>
+                                                                    <?php } else if ($row['status'] == '3') { ?>
+                                                                        <td><span class='badge badge-danger'>Declined</span></td>
+                                                                    <?php } ?>
                                                                     <td class='text-right'>
                                                                         <div class='btn-group'>
                                                                             <button type='button' class='btn btn-primary mx-2' data-bs-toggle='modal' data-bs-target='#editStatusModal<?php echo $row['id']; ?>'>
                                                                                 Edit Status
                                                                             </button>
-                                                                            <a class='btn btn-danger' href='deleteorder.php?id=<?php echo $row['id']; ?>'>Delete</a>
+                                                                            <a class='btn btn-danger' href='deleteorder.php?id=<?php echo $row['id']; ?>'><i class="fa-solid fa-trash"></i></a>
                                                                         </div>
                                                                     </td>
                                                                 </tr>
@@ -154,6 +157,8 @@ $result = $conn->query($sql);
 
 
 </body>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
@@ -161,9 +166,14 @@ $result = $conn->query($sql);
 <script>
     $(document).ready(function() {
         $('#myTable').DataTable({
-            columnDefs: [
-                { targets: [0], searchable: true },
-                { targets: '_all', searchable: false }
+            columnDefs: [{
+                    targets: [0],
+                    searchable: true
+                },
+                {
+                    targets: '_all',
+                    searchable: false
+                }
             ]
         });
     });

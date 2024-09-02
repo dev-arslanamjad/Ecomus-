@@ -109,8 +109,8 @@ $result = $conn->query($sql);
                                             echo "<td>" . $row['discription'] . "</td>";
                                             echo "<td class='text-right'>
                                                                         <div class='btn-group'>
-                                                                            <a class='btn btn btn-primary mx-2' href='editcatagory.php?id=" . $row['id'] . "'>Edit</a>
-                                                                            <a class='btn btn btn-danger' href='deletecatagory.php?id=" . $row['id'] . "'>Delete</a>
+                                                                            <a class='btn btn btn-primary mx-2' href='editcatagory.php?id=" . $row['id'] . "'><i class='fa-solid fa-pen'></i></a>
+                                                                            <a class='btn btn btn-danger' href='deletecatagory.php?id=" . $row['id'] . "'><i class='fa-solid fa-trash'></i></a>
                                                                         </div>
                                                                       </td>";
                                             echo "</tr>";
@@ -138,6 +138,8 @@ $result = $conn->query($sql);
     <?php
     include('common/scripts.php');
     ?>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
 </body>
 
 </html>

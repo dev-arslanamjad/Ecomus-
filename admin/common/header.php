@@ -13,4 +13,5 @@
     <link href="admin_assets/css/style.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" integrity="sha512-v0bd9Wa8Jl4bC7pKoKKLwM5W6mK0sA5v5w/If4h5EZmY9pF0IGbQUnw7X0kL4Dr5zxn3TnVV1Z9POk6NHFVvA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    
 </head>

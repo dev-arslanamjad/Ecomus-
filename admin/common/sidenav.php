@@ -40,6 +40,9 @@
             <li>
                 <a href="orders.php"><i class="fa fa-shopping-cart"></i> <span class="nav-label"> Oders</span></a>
             </li>
+            <li>
+                <a href="order_items.php"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Oder Details</span></a>
+            </li>
         </ul>
     </div>
 </nav>
