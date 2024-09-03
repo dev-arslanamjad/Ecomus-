@@ -3,9 +3,9 @@ include('templates/header.php')
 ?>
 <!-- /header -->
 <!-- page-title -->
-    <div class="container-full" style="margin-bottom: 19px;">
-        <h4 class="heading text-center"><b>Pay with Stripe</b></h4>
-    </div>
+<div class="container-full" style="margin-bottom: 19px;">
+    <h4 class="heading text-center"><b>Pay with Stripe</b></h4>
+</div>
 <!-- /page-title -->
 <div class="container" style="margin-bottom: 50px;">
     <form action="stripe_checkout.php" method="post">
@@ -19,14 +19,22 @@ include('templates/header.php')
                         $subtotal += $product['price'] * $quantity;
                     ?>
                         <div class="tf-mini-cart-item p-4" id="cart-item-<?php echo $product['id']; ?>" style="box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset; width: 16%; margin-bottom: 10px; margin-right: 5px;">
+                            <div class="card-product-wrapper">
+                                <a href="#" class="product-img">
+                                    <img class="lazyload img-hover" data-src="admin/<?php echo $product['image']; ?>"
+                                        src="admin/<?php echo $product['image']; ?>" alt="image-product">
+                                </a>
+                            </div>
                             <div class="tf-mini-cart-info">
-                                <a class="title link" href="product_detail.php?id=<?php echo $product['id'] ?>"><p><b><?php echo $product['name']; ?></b></p></a>
+                                <a class="title link" href="product_detail.php?id=<?php echo $product['id'] ?>">
+                                    <p><b><?php echo $product['name']; ?></b></p>
+                                </a>
                                 <p class="meta-variant"><?php echo $product['model']; ?></p>
                                 <div class="price fw-6"><?php echo $product['price']; ?>$</div>
                                 <div class="tf-mini-cart-btns">
                                     <div class`="wg-quantity small">
                                         <label for="">Quantity : x<?php echo $quantity; ?></label>
-                                        
+
                                     </div>
                                 </div>
                             </div>

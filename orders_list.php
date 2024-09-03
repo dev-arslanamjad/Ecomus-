@@ -30,44 +30,57 @@ $result = mysqli_query($conn, $sql);
     </div>
 </div>
 
-
-<div class="container-fluid">
-    <div class="container">
-        <table class="table table-bordered table-striped">
-            <thead >
-                <tr>
-                    <th style="background-color: #0080007d; color:white;" >Order ID</th>
-                    <th style="background-color: #0080007d; color:white;">Transaction ID</th>
-                    <th style="background-color: #0080007d; color:white;">Total Amount</th>
-                    <th style="background-color: #0080007d; color:white;">Status</th>
-                    <th style="background-color: #0080007d; color:white;">Action</th>
-                </tr>
-            </thead>
-            <?php
-            while ($row = mysqli_fetch_assoc($result)) { ?>
-                <tbody>
-                    <tr>
-                        <td><?php echo $row['id'] ?></td>
-                        <td><?php echo $row['transaction_id'] ?></td>
-                        <td><?php echo $row['total'] ?>$</td>
-                        <?php
-                        if ($row['status'] == '0') { ?>
-                            <td><span class='badge bg-warning text-dark'>Processing</span></td>
-                        <?php } else if ($row['status'] == '1') { ?>
-                            <td><span class='badge bg-primary'>Shipped</span></td>
-                        <?php } else if ($row['status'] == '2') { ?>
-                            <td><span class='badge bg-success'>Delivered</span></td>
-                        <?php } else if ($row['status'] == '3') { ?>
-                            <td><span class='badge bg-danger'>Declined</span></td>
-                        <?php } ?>
-                        <td><a class="btn btn-info" href="view_order.php?id=<?php echo $row['id'] ?>"><b>View </b><i class="fa-solid fa-eye"></i></a></td>
-                    </tr>
-                </tbody>
-            <?php }
-            ?>
-        </table>
+<?php
+if (!$result) { ?>
+    <div class="container-fluid">
+        <div class="container text-center" style="margin-block: 100px;">
+            <p>Nothing in Orders <span><a class="text-primary" href="products.php">Order Some?</a></span></p>
+        </div>
     </div>
-</div>
+<?php } else { ?>
+    <div class="container-fluid">
+        <div class="container">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th style="background-color: #0080007d; color:white; width:20%">Order ID</th>
+                        <th style="background-color: #0080007d; color:white; width:20%">Transaction ID</th>
+                        <th style="background-color: #0080007d; color:white; width:20%">Total Amount</th>
+                        <th style="background-color: #0080007d; color:white; width:20%">Status</th>
+                        <th style="background-color: #0080007d; color:white; width:20%">Action</th>
+                    </tr>
+                </thead>
+                <?php
+                while ($row = mysqli_fetch_assoc($result)) { ?>
+                    <tbody>
+                        <tr>
+                            <td><?php echo $row['id'] ?></td>
+                            <td><?php echo substr($row['transaction_id'], 0, 17); ?></td>
+                            <td><?php echo $row['total'] ?>.00$</td>
+                            <?php
+                            if ($row['status'] == '0') { ?>
+                                <td><span class='badge bg-warning text-dark'>Processing</span></td>
+                            <?php } else if ($row['status'] == '1') { ?>
+                                <td><span class='badge bg-primary'>Shipped</span></td>
+                            <?php } else if ($row['status'] == '2') { ?>
+                                <td><span class='badge bg-success'>Delivered</span></td>
+                            <?php } else if ($row['status'] == '3') { ?>
+                                <td><span class='badge bg-danger'>Declined</span></td>
+                            <?php } ?>
+                            <td>
+                                <a class="btn btn-info" href="view_order.php?id=<?php echo $row['id'] ?>">View <i class="fa-solid fa-eye"></i></a>
+                                <a class="btn btn-danger" href="cancel_order.php?id=<?php echo $row['id'] ?>">Cancel <i class="fa-solid fa-trash"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                <?php }
+                ?>
+            </table>
+        </div>
+    </div>
+
+<?php } ?>
+
 
 
 

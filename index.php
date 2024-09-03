@@ -199,11 +199,11 @@ if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']) {
                             <div class="swiper-slide" lazy="true">
                                 <div class="collection-item style-left hover-img">
                                     <div class="collection-inner">
-                                        <a href="products_by_catagory.php?id=<?php echo $row['id']?>" class="collection-image img-style">
+                                        <a href="products_by_catagory.php?id=<?php echo $row['id'] ?>" class="collection-image img-style">
                                             <div style="width: 100%; height: 200px; background-image: url('admin/<?php echo $row['image'] ?>'); background-size: cover; background-position: center;"></div>
                                         </a>
                                         <div class="collection-content">
-                                            <a href="products_by_catagory.php?id=<?php echo $row['id']?>" class="tf-btn collection-title hover-icon fs-15"><span><?php echo $row['name'] ?></span><i class="icon icon-arrow1-top-left"></i></a>
+                                            <a href="products_by_catagory.php?id=<?php echo $row['id'] ?>" class="tf-btn collection-title hover-icon fs-15"><span><?php echo $row['name'] ?></span><i class="icon icon-arrow1-top-left"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -217,7 +217,7 @@ if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']) {
             <div class="col-xl-3 col-lg-4 col-md-4">
                 <div class="discovery-new-item">
                     <h5>Discovery all new items</h5>
-                    <a href="product-detail.php"><i class="icon-arrow1-top-left"></i></a>
+                    <a href="products.php"><i class="icon-arrow1-top-left"></i></a>
                 </div>
             </div>
         </div>
@@ -257,7 +257,7 @@ if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']) {
                     </div>
                     <div class="card-product-info">
                         <a href="product_detail.php?id=<?php echo $row['id']; ?>&<?php echo $row['slug']; ?>" class="title link"><?php echo $row['name']; ?><span> - <?php echo $row['model']; ?></span></a>
-                        <span class="price"><?php echo $row['price']; ?>$</span>
+                        <span class="price"><?php echo $row['price']; ?>.00$</span>
                         <?php if ($row['available'] == 'Yes') { ?>
                             <span class="badge bg-success text-white" style="width: 70px;">Available</span>
                         <?php } else { ?>
@@ -280,7 +280,7 @@ if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']) {
                                                 <h5><a href="product_detail.php?id=<?php echo $row['id']; ?>&<?php echo $row['slug']; ?>"><?php echo $row['name']; ?></a></h5>
                                                 <span><?php echo $row['model'] ?></span>
                                                 <div class="tf-product-info-price">
-                                                    <div class="price"><?php echo $row['price']; ?>$</div>
+                                                    <div class="price"><?php echo $row['price']; ?>.00$</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -293,51 +293,6 @@ if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']) {
                                             <div class="tf-product-info-variant-picker mb_15">
                                                 <div class="d-flex">
                                                     <div>
-                                                        <div class="variant-picker-item">
-                                                            <div class="variant-picker-label">
-                                                                Color: <span class="fw-6 variant-picker-label-value">Orange</span>
-                                                            </div>
-                                                            <div class="variant-picker-values">
-                                                                <input id="values-orange-<?php echo $row['id']; ?>" type="radio" name="color" value="Orange" checked>
-                                                                <label class="hover-tooltip radius-60" for="values-orange- <?php echo $row['id']; ?>" data-value="Orange">
-                                                                    <span class="btn-checkbox bg-color-orange"></span>
-                                                                    <span class="tooltip">Orange</span>
-                                                                </label>
-                                                                <input id="values-black- <?php echo $row['id']; ?>" type="radio" name="color" value="Black">
-                                                                <label class=" hover-tooltip radius-60" for="values-black- <?php echo $row['id']; ?>" data-value="Black">
-                                                                    <span class="btn-checkbox bg-color-black"></span>
-                                                                    <span class="tooltip">Black</span>
-                                                                </label>
-                                                                <input id="values-white- <?php echo $row['id']; ?>" type="radio" name="color" value="White">
-                                                                <label class="hover-tooltip radius-60" for="values-white- <?php echo $row['id']; ?>" data-value="White">
-                                                                    <span class="btn-checkbox bg-color-white"></span>
-                                                                    <span class="tooltip">White</span>
-                                                                </label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="variant-picker-item">
-                                                            <div class="variant-picker-label">
-                                                                Size: <span class="fw-6 variant-picker-label-value">S</span>
-                                                            </div>
-                                                            <div class="variant-picker-values">
-                                                                <input type="radio" name="size" id="values-s- <?php echo $row['id']; ?>" value="S" checked>
-                                                                <label class="style-text" for="values-s- <?php echo $row['id']; ?>" data-value="S">
-                                                                    <p>S</p>
-                                                                </label>
-                                                                <input type="radio" name="size" id="values-m- <?php echo $row['id']; ?>" value="M">
-                                                                <label class="style-text" for="values-m- <?php echo $row['id']; ?>" data-value="M">
-                                                                    <p>M</p>
-                                                                </label>
-                                                                <input type="radio" name="size" id="values-l- <?php echo $row['id']; ?>" value="L">
-                                                                <label class="style-text" for="values-l- <?php echo $row['id']; ?>" data-value="L">
-                                                                    <p>L</p>
-                                                                </label>
-                                                                <input type="radio" name="size" id="values-xl- <?php echo $row['id']; ?>" value="XL">
-                                                                <label class="style-text" for="values-xl- <?php echo $row['id']; ?>" data-value="XL">
-                                                                    <p>XL</p>
-                                                                </label>
-                                                            </div>
-                                                        </div>
                                                         <div class="tf-product-info-quantity mb_15">
                                                             <div class="quantity-title fw-6">Quantity</div>
                                                             <div class="wg-quantity">
@@ -414,8 +369,6 @@ if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']) {
 </section>
 
 
-
-<!-- /Seller -->
 <!-- Lookbook -->
 <section class="flat-spacing-6">
     <div class="flat-title wow fadeInUp" data-wow-delay="0s">
@@ -522,6 +475,8 @@ if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']) {
     </div>
 </section>
 <!-- /Lookbook -->
+
+
 <!-- Testimonial -->
 <section class="flat-spacing-5 pt_0 flat-testimonial">
     <div class="container">
@@ -532,138 +487,52 @@ if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']) {
         <div class="wrap-carousel">
             <div class="swiper tf-sw-testimonial" data-preview="3" data-tablet="2" data-mobile="1" data-space-lg="30" data-space-md="15">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="testimonial-item style-column wow fadeInUp" data-wow-delay="0s">
-                            <div class="rating">
-                                <i class="icon-start"></i>
-                                <i class="icon-start"></i>
-                                <i class="icon-start"></i>
-                                <i class="icon-start"></i>
-                                <i class="icon-start"></i>
-                            </div>
-                            <div class="heading">Best Online Fashion Site</div>
-                            <div class="text">
-                                “ I always find something stylish and affordable on this web fashion site ”
-                            </div>
-                            <div class="author">
-                                <div class="name">Robert smith</div>
-                                <div class="metas">Customer from USA</div>
-                            </div>
-                            <div class="product">
-                                <div class="image">
-                                    <a href="">
-                                        <img class="lazyload" data-src="assets/frontend/images/shop/products/img-p2.png" src="assets/frontend/images/shop/products/img-p2.png" alt="">
-                                    </a>
+                    <?php
+                    $sql = "SELECT * FROM products";
+                    $result = mysqli_query($conn, $sql);
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $product_id = $row['id'];
+                        $product_name  = $row['name'];
+                        $product_image = $row['image'];
+                        $product_model = $row['model'];
+                        $product_discription = $row['discription'];
+                        $product_price = $row['price'];
+                        $product_quantity = $row['quantity'];
+                        $product_status = $row['available']; ?>
+                        <div class="swiper-slide">
+                            <div class="testimonial-item style-column wow fadeInUp" data-wow-delay="0s">
+                                <div class="rating">
+                                    <i class="icon-start"></i>
+                                    <i class="icon-start"></i>
+                                    <i class="icon-start"></i>
+                                    <i class="icon-start"></i>
+                                    <i class="icon-start"></i>
                                 </div>
-                                <div class="content-wrap">
-                                    <div class="product-title">
-                                        <a href="">Jersey thong body</a>
+                                <div class="heading">Best Online Fashion Site</div>
+                                <div class="text">
+                                    “ I always find something stylish and affordable on this web fashion site ”
+                                </div>
+                                <div class="author">
+                                    <div class="name">Robert smith</div>
+                                    <div class="metas">Customer from USA</div>
+                                </div>
+                                <div class="product">
+                                    <div class="image">
+                                        <a href="">
+                                            <img class="lazyload" data-src="admin/<?php echo $product_image; ?>" src="admin/<?php echo $product_image; ?>" alt="">
+                                        </a>
                                     </div>
-                                    <div class="price">$105.95</div>
+                                    <div class="content-wrap">
+                                        <div class="product-title">
+                                            <a href=""><?php echo $product_name; ?></a>
+                                        </div>
+                                        <div class="price"><?php echo $product_price; ?>.00$</div>
+                                    </div>
+                                    <a href="product_detail.php?id=<?php echo $product_id; ?>&<?php echo urlencode(strtolower(str_replace(' ', '-', $product_name))); ?>" class=""><i class="icon-arrow1-top-left"></i></a>
                                 </div>
-                                <a href="" class=""><i class="icon-arrow1-top-left"></i></a>
                             </div>
                         </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="testimonial-item style-column wow fadeInUp" data-wow-delay=".1s">
-                            <div class="rating">
-                                <i class="icon-start"></i>
-                                <i class="icon-start"></i>
-                                <i class="icon-start"></i>
-                                <i class="icon-start"></i>
-                                <i class="icon-start"></i>
-                            </div>
-                            <div class="heading">Great Selection and Quality</div>
-                            <div class="text">
-                                "I love the variety of styles and the high-quality clothing on this web fashion site."
-                            </div>
-                            <div class="author">
-                                <div class="name">Allen Lyn</div>
-                                <div class="metas">Customer from France</span></div>
-                            </div>
-                            <div class="product">
-                                <div class="image">
-                                    <a href="">
-                                        <img class="lazyload" data-src="assets/frontend/images/shop/products/img-p3.png" src="assets/frontend/images/shop/products/img-p3.png" alt="">
-                                    </a>
-                                </div>
-                                <div class="content-wrap">
-                                    <div class="product-title">
-                                        <a href="">Cotton jersey top</a>
-                                    </div>
-                                    <div class="price">$7.95</div>
-                                </div>
-                                <a href="" class=""><i class="icon-arrow1-top-left"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="testimonial-item style-column wow fadeInUp" data-wow-delay=".2s">
-                            <div class="rating">
-                                <i class="icon-start"></i>
-                                <i class="icon-start"></i>
-                                <i class="icon-start"></i>
-                                <i class="icon-start"></i>
-                                <i class="icon-start"></i>
-                            </div>
-                            <div class="heading">Best Customer Service</div>
-                            <div class="text">
-                                "I finally found a web fashion site with stylish and flattering options in my size."
-                            </div>
-                            <div class="author">
-                                <div class="name">Peter Rope</div>
-                                <div class="metas">Customer from USA</div>
-                            </div>
-                            <div class="product">
-                                <div class="image">
-                                    <a href="">
-                                        <img class="lazyload" data-src="assets/frontend/images/shop/products/img-p4.png" src="assets/frontend/images/shop/products/img-p4.png" alt="">
-                                    </a>
-                                </div>
-                                <div class="content-wrap">
-                                    <div class="product-title">
-                                        <a href="">Ribbed modal T-shirt</a>
-                                    </div>
-                                    <div class="price">From $18.95</div>
-                                </div>
-                                <a href="" class=""><i class="icon-arrow1-top-left"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="testimonial-item style-column wow fadeInUp" data-wow-delay=".3s">
-                            <div class="rating">
-                                <i class="icon-start"></i>
-                                <i class="icon-start"></i>
-                                <i class="icon-start"></i>
-                                <i class="icon-start"></i>
-                                <i class="icon-start"></i>
-                            </div>
-                            <div class="heading">Great Selection and Quality</div>
-                            <div class="text">
-                                "I love the variety of styles and the high-quality clothing on this web fashion site."
-                            </div>
-                            <div class="author">
-                                <div class="name">Hellen Ase</div>
-                                <div class="metas">Customer from Japan</span></div>
-                            </div>
-                            <div class="product">
-                                <div class="image">
-                                    <a href="">
-                                        <img class="lazyload" data-src="assets/frontend/images/shop/products/img-p5.png" src="assets/frontend/images/shop/products/img-p5.png" alt="">
-                                    </a>
-                                </div>
-                                <div class="content-wrap">
-                                    <div class="product-title">
-                                        <a href="">Customer from Japan</a>
-                                    </div>
-                                    <div class="price">$16.95</div>
-                                </div>
-                                <a href="" class=""><i class="icon-arrow1-top-left"></i></a>
-                            </div>
-                        </div>
-                    </div>
+                    <?php } ?>
                 </div>
             </div>
             <div class="nav-sw nav-next-slider nav-next-testimonial lg"><span class="icon icon-arrow-left"></span></div>
@@ -673,6 +542,11 @@ if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']) {
     </div>
 </section>
 <!-- /Testimonial -->
+
+
+
+
+
 <!-- brand -->
 <section class="flat-spacing-5 pt_0">
     <div class="container">

@@ -2,11 +2,11 @@
 include('connection.php');
 include('templates/header.php');
 $order_id = $_GET['id'];
-// Corrected SQL query with INNER JOIN
+
 $sql = "SELECT products.image, order_items.product_name, order_items.price, order_items.quantity, order_items.total
         FROM products
         INNER JOIN order_items ON products.id = order_items.product_id
-        WHERE order_items.order_id = $order_id";
+        WHERE order_items.id = $order_id";
         
 $result = mysqli_query($conn, $sql);
 
@@ -62,9 +62,9 @@ if (!$result) {
                         <td><?php echo $i ?></td>
                         <td><?php echo $row['product_name'] ?></td>
                         <td><img src="admin/<?php echo $row['image'] ?>" alt="Product Image" width="50px"></td>
-                        <td><?php echo $row['price'] ?>$</td>
+                        <td><?php echo $row['price'] ?>.00$</td>
                         <td><?php echo $row['quantity'] ?></td>
-                        <td><?php echo $row['total'] ?>$</td>
+                        <td><?php echo $row['total'] ?>.00$</td>
                     </tr>
                 </tbody>
             <?php $i++; 

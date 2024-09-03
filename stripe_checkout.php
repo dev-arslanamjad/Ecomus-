@@ -21,10 +21,11 @@ foreach ($products as $product) {
 }
 $checkout_session = \Stripe\Checkout\Session::create([
     "mode" => "payment",
-    "success_url" => "http://localhost/ecommerce/stripe_success.php",
+    "success_url" => "http://localhost/ecommerce/stripe_success.php?total=$subtotal&session_id={CHECKOUT_SESSION_ID}",
     "cancel_url" => "http://localhost/ecommerce/index.php",
     "locale" => "auto",
     "line_items" => $line_items,
 ]);
+echo $response->id;
 http_response_code(303);
 header("Location: " . $checkout_session->url);
