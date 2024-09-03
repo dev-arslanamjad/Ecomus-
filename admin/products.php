@@ -139,16 +139,16 @@ $result2 = $conn->query($query);
                                             <div class="ibox">
                                                 <div class="ibox-content">
                                                     <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="15">
-                                                        <thead>
+                                                        <thead class="bg-dark text-white">
                                                             <tr>
                                                                 <th data-toggle="true">Product Name</th>
-                                                                <th data-toggle="true">Product Image</th>
+                                                                <th data-toggle="true">Image</th>
                                                                 <th data-hide="phone">Model</th>
                                                                 
                                                                 <th data-hide="phone">Price</th>
                                                                 <th data-hide="phone,tablet">Quantity</th>
                                                                 <th data-hide="phone">Available</th>
-                                                                <th class="text-right" data-sort-ignore="true">Action</th>
+                                                                <th class="text-right" data-sort-ignore="true">Actions</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>

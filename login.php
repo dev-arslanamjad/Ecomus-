@@ -4,26 +4,27 @@ include('templates/header.php')
 ?>
 
 <?php
-if (isset($_SESSION['message'])) {
-    echo '<div class="alert alert-info alert-dismissible fade show alert-sm text-center mx-auto" style="max-width: 300px;" role="alert" id="message-alert">
-        <h6>' . $_SESSION['message'] . '</h6>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>';
-    echo '<script>
-        setTimeout(function() {
-            var alert = document.getElementById("message-alert");
-            alert.style.transition = "opacity 0.5s";
-            alert.style.opacity = "0";
-            setTimeout(function() {
-                alert.style.display = "none";
-            }, 500);
-        }, 2000);
-        </script>';
-    unset($_SESSION['message']);
-}
-?>
+if (isset($_SESSION['message'])) { ?>
 
-</div>
+
+    <div class="alert alert-info alert-dismissible fade show alert-sm text-center mx-auto" style="max-width: 300px;" role="alert" id="message-alert">
+        <h6><?php echo $_SESSION['message'] ?></h6>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+<?php
+    unset($_SESSION['message']);
+} ?>
+<script>
+    setTimeout(function() {
+        var alert = document.getElementById("message-alert");
+        alert.style.transition = "opacity 0.5s";
+        alert.style.opacity = "0";
+        setTimeout(function() {
+            alert.style.display = "none";
+        }, 500);
+    }, 2000);
+</script>
 <!-- page-title -->
 <div class="container-fluid">
     <div class="container ">

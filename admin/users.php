@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 include('connection.php');
@@ -50,13 +49,15 @@ include('common/header.php');
                         <div class="ibox">
                             <div class="ibox-content">
                                 <div class="table-responsive">
-                                    <table class="table table-striped table-bordered table-hover dataTables-example">
-                                        <thead>
+                                    <table class="table table-striped table-bordered table-hover">
+                                        <thead class="">
                                             <tr>
-                                                <th style="width: 25%">Serial No.</th>
-                                                <th style="width: 25%">Name</th>
-                                                <th style="width: 25%">email</th>
-                                                <th style="width: 25%">Actions</th>
+                                                
+                                            <th class="bg-dark text-white">Serial No.</th>
+                                                <th class="bg-dark text-white">Name</th>
+                                                <th class="bg-dark text-white">Email</th>
+                                                <th class="bg-dark text-white">Status</th>
+                                                <th class="bg-dark text-white">Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -66,10 +67,17 @@ include('common/header.php');
                                             $serial = 1;
                                             while ($row = mysqli_fetch_assoc($result)) { ?>
                                                 <tr>
-                                                    <td><?php echo $serial?></td>
-                                                    <td><?php echo $row['name']?></td>
-                                                    <td><?php echo $row['email']?></td>
-                                                    <td><a href="edit.php?id=<?php echo $row['id']?>" class="btn btn-primary"><i class="fa-solid fa-pen"></i></a> <a href=" delete.php?id=<?php echo $row['id']?>" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a></td>
+                                                    <td><?php echo $serial ?></td>
+                                                    <td><?php echo $row['name'] ?></td>
+                                                    <td><?php echo $row['email'] ?></td>
+                                                    <?php
+                                                    if ($row['is_verified'] == '0') { ?>
+                                                        <td><span class='badge badge-danger'>Un-Verified</span></td>
+
+                                                    <?php } else if ($row['is_verified'] == '1') { ?>
+                                                        <td><span class='badge text-white' style="background-color: green;">Verified</span></td>
+                                                    <?php } ?>
+                                                    <td><a href="edit.php?id=<?php echo $row['id'] ?>" class="btn btn-primary"><i class="fa-solid fa-pen"></i></a> <a href=" delete.php?id=<?php echo $row['id'] ?>" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a></td>
                                                 </tr>
 
                                             <?php $serial++;

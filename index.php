@@ -192,21 +192,18 @@ if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']) {
         <div class="row">
             <div class="col-xl-9 col-lg-8 col-md-8">
                 <div class="swiper tf-sw-collection" data-preview="3" data-tablet="2" data-mobile="2" data-space-lg="30" data-space-md="30" data-space="15" data-loop="false" data-auto-play="false">
-
-
                     <div class="swiper-wrapper">
                         <?php
                         while ($row = mysqli_fetch_assoc($result)) {
                         ?>
-
                             <div class="swiper-slide" lazy="true">
                                 <div class="collection-item style-left hover-img">
                                     <div class="collection-inner">
-                                        <a href="shop.phps" class="collection-image img-style">
+                                        <a href="products_by_catagory.php?id=<?php echo $row['id']?>" class="collection-image img-style">
                                             <div style="width: 100%; height: 200px; background-image: url('admin/<?php echo $row['image'] ?>'); background-size: cover; background-position: center;"></div>
                                         </a>
                                         <div class="collection-content">
-                                            <a href="shop.phps" class="tf-btn collection-title hover-icon fs-15"><span><?php echo $row['name'] ?></span><i class="icon icon-arrow1-top-left"></i></a>
+                                            <a href="products_by_catagory.php?id=<?php echo $row['id']?>" class="tf-btn collection-title hover-icon fs-15"><span><?php echo $row['name'] ?></span><i class="icon icon-arrow1-top-left"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -266,23 +263,6 @@ if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']) {
                         <?php } else { ?>
                             <span class="badge bg-danger text-white" style="width: 70px;">Out of Stock</span>
                         <?php } ?>
-                        <ul class="list-color-product">
-                            <li class="list-color-item color-swatch active">
-                                <span class="tooltip">Orange</span>
-                                <span class="swatch-value bg_orange-3"></span>
-                                <img class="lazyload" data-src="assets/frontend/images/products/orange-1.jpg" src="assets/frontend/images/products/orange-1.jpg" alt="image-product">
-                            </li>
-                            <li class="list-color-item color-swatch">
-                                <span class="tooltip">Black</span>
-                                <span class="swatch-value bg_dark"></span>
-                                <img class="lazyload" data-src="assets/frontend/images/products/black-1.jpg" src="assets/frontend/images/products/black-1.jpg" alt="image-product">
-                            </li>
-                            <li class="list-color-item color-swatch">
-                                <span class="tooltip">White</span>
-                                <span class="swatch-value bg_white"></span>
-                                <img class="lazyload" data-src="assets/frontend/images/products/white-1.jpg" src="assets/frontend/images/products/white-1.jpg" alt="image-product">
-                            </li>
-                        </ul>
                     </div>
                     <div class="modal fade modalDemo" id="quick_add_<?php echo $row['id']; ?>">
                         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable w-50">

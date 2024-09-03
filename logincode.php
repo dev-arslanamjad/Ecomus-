@@ -11,18 +11,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($result) {
         if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc(); 
-            
+            $row = $result->fetch_assoc();
+
             if (password_verify($password, $row['password'])) {
                 echo 'Login successful';
-                $_SESSION['userid']=$row['id'];
-                $_SESSION['name']=$row['name'];
+                $_SESSION['userid'] = $row['id'];
+                $_SESSION['name'] = explode(' ', $row['name'])[0];
                 header('location: index.php');
             } else {
-                echo 'Invalid password';
+                $_SESSION['message'] = 'Invalid Email or Password';
+                header('location: login.php');
             }
         } else {
-            $_SESSION['message']= 'Invalid Email or Password';
+            $_SESSION['message'] = 'Invalid Email or Password';
             header('location: login.php');
         }
     } else {
@@ -31,4 +32,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $conn->close();
 }
-?>

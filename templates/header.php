@@ -39,6 +39,7 @@ include('templates/headlinks.php')
     .hover:hover::before {
         width: 100%;
     }
+
     .hover_logout {
         position: relative;
         text-decoration: none;
@@ -57,8 +58,6 @@ include('templates/headlinks.php')
     .hover_logout:hover::before {
         width: 100%;
     }
-
-
 </style>
 
 <body class="preload-wrapper">
@@ -104,6 +103,10 @@ include('templates/headlinks.php')
                                             </div>
                                             <div class="row drop_menu" aria-labelledby="dropdownMenu2">
                                                 <div class="col d-flex align-items-center pt-2">
+                                                <i class="fa-solid fa-truck-fast"></i>
+                                                    <a class="dropitem hover" href="orders_list?id=<?php echo $_SESSION['userid']?>">Orders</a>
+                                                </div>
+                                                <div class="col d-flex align-items-center pt-2">
                                                     <i class="fa-solid fa-sign-out-alt me-2"></i>
                                                     <a class="dropitem hover" href="logout.php">Logout</a>
                                                 </div>
@@ -119,6 +122,8 @@ include('templates/headlinks.php')
                                                 <div class="row">
                                                     <a class=" dropitem pt-3 hover_logout" href="login.php"> Login </a>
                                                 </div>
+
+
                                                 <div class="w-100 row">
                                                     <a class="dropitem pt-3 hover_logout" href="register.php"> Register</a>
                                                 </div>

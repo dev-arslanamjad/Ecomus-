@@ -106,7 +106,7 @@ $result = $conn->query($sql);
                                                                         </div>
                                                                     </td>
                                                                 </tr>
-                                                                <!-- Modal -->
+
                                                                 <div class="modal fade" id="editStatusModal<?php echo $row['id']; ?>" tabindex="-1" aria-labelledby="editStatusModalLabel<?php echo $row['id']; ?>" aria-hidden="true">
                                                                     <div class="modal-dialog">
                                                                         <div class="modal-content">

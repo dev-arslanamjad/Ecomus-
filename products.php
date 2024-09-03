@@ -19,21 +19,11 @@ include('templates/header.php');
     <div class="container">
         <div class="tf-breadcrumb-wrap d-flex justify-content-between flex-wrap align-items-center">
             <div class="tf-breadcrumb-list">
-                <a href="index.html" class="text">Home</a>
+                <a href="index.php" class="text">Home</a>
                 <i class="icon icon-arrow-right"></i>
                 <a href="#" class="text">Women</a>
             </div>
-            <div class="tf-breadcrumb-prev-next">
-                <a href="#" class="tf-breadcrumb-prev hover-tooltip center">
-                    <i class="icon icon-arrow-left"></i>
-                </a>
-                <a href="#" class="tf-breadcrumb-back hover-tooltip center">
-                    <i class="icon icon-shop"></i>
-                </a>
-                <a href="#" class="tf-breadcrumb-next hover-tooltip center">
-                    <i class="icon icon-arrow-right"></i>
-                </a>
-            </div>
+            
         </div>
     </div>
 </div>
@@ -95,26 +85,9 @@ include('templates/header.php');
                                         </div>
                                     </div>
                                     <div class="card-product-info">
-                                        <a href="product_detail.php?id=<?php echo $product_id;?>" class="title link"><?php echo $product_name ?></a>
+                                        <a href="product_detail.php?id=<?php echo $product_id;?>" class="title link"><b><?php echo $product_name ?></b></a>
                                         <span href="product_detail.php?id=<?php echo $product_id;?>" class="title link"><?php echo $product_model ?></span>
                                         <span class="price"><?php echo $product_price ?>$</span>
-                                        <ul class="list-color-product">
-                                            <li class="list-color-item color-swatch active">
-                                                <span class="tooltip">Orange</span>
-                                                <span class="swatch-value bg_orange-3"></span>
-                                                <img class="lazyload" data-src="assets/frontend/images/products/orange-1.jpg" src="assets/frontend/images/products/orange-1.jpg" alt="image-product">
-                                            </li>
-                                            <li class="list-color-item color-swatch">
-                                                <span class="tooltip">Black</span>
-                                                <span class="swatch-value bg_dark"></span>
-                                                <img class="lazyload" data-src="assets/frontend/images/products/black-1.jpg" src="assets/frontend/images/products/black-1.jpg" alt="image-product">
-                                            </li>
-                                            <li class="list-color-item color-swatch">
-                                                <span class="tooltip">White</span>
-                                                <span class="swatch-value bg_white"></span>
-                                                <img class="lazyload" data-src="assets/frontend/images/products/white-1.jpg" src="assets/frontend/images/products/white-1.jpg" alt="image-product">
-                                            </li>
-                                        </ul>
                                     </div>
                                 </div>
                             </form>

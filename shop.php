@@ -55,11 +55,6 @@ $result = mysqli_query($conn, $sql);
                                 <span class="icon icon-bag"></span>
                                 <span class="tooltip">Quick Add</span>
                             </a>
-                            <a href="javascript:void(0);" class="box-icon bg_white wishlist btn-icon-action">
-                                <span class="icon icon-heart"></span>
-                                <span class="tooltip">Add to Wishlist</span>
-                                <span class="icon icon-delete"></span>
-                            </a>
                             <a href="#quick_view_<?php echo $row['id']; ?>" data-bs-toggle="modal" class="box-icon bg_white quickview tf-btn-loading">
                                 <span class="icon icon-view"></span>
                                 <span class="tooltip">Quick View</span>
@@ -71,23 +66,6 @@ $result = mysqli_query($conn, $sql);
                         <span class="price"><?php echo $row['price'] ?>$</span>
                         <p class="description"><?php echo substr($row['discription'], 0, 100) . '...'; ?></p>
                         <p class="description"></p>
-                        <ul class="list-color-product">
-                            <li class="list-color-item color-swatch active">
-                                <span class="tooltip">Orange</span>
-                                <span class="swatch-value bg_orange-3"></span>
-                                <img class="lazyload" data-src="images/products/orange-1.jpg" src="images/products/orange-1.jpg" alt="image-product">
-                            </li>
-                            <li class="list-color-item color-swatch">
-                                <span class="tooltip">Black</span>
-                                <span class="swatch-value bg_dark"></span>
-                                <img class="lazyload" data-src="images/products/black-1.jpg" src="images/products/black-1.jpg" alt="image-product">
-                            </li>
-                            <li class="list-color-item color-swatch">
-                                <span class="tooltip">White</span>
-                                <span class="swatch-value bg_white"></span>
-                                <img class="lazyload" data-src="images/products/white-1.jpg" src="images/products/white-1.jpg" alt="image-product">
-                            </li>
-                        </ul>
                     </div>
                 </div>
                 <div class=" modal fade modalDemo" id="quick_add_<?php echo $row['id']; ?>">
@@ -164,7 +142,7 @@ $result = mysqli_query($conn, $sql);
                             </div>
                             <div class="wrap">
                                 <div class="item">
-                                    <img class="w-25" data-src="admin/<?php echo $row['image']; ?>" src="admin/<?php echo $row['image']; ?>">
+                                    <img data-src="admin/<?php echo $row['image']; ?>" src="admin/<?php echo $row['image']; ?>" style="width: 300px; height: 300px; object-fit: cover; display: block; margin: 0 auto;">
                                 </div>
                                 <div class="tf-product-info-wrap position-relative">
                                     <div class="tf-product-info-list">
@@ -182,6 +160,7 @@ $result = mysqli_query($conn, $sql);
                                             <div class="price"><?php echo $row['price'] ?>$</div>
                                             <input type="hidden" id="unitprice_<?php echo $row['id'] ?>" value="<?php echo $row['price'] ?></input>
                                         </div>
+                                        
                                         <div class=" tf-product-description">
                                             <p><?php echo $row['discription'] ?></p>
                                         </div>

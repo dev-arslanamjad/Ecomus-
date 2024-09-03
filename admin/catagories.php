@@ -92,10 +92,10 @@ $result = $conn->query($sql);
                         <div class="ibox">
                             <div class="ibox-content">
                                 <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="15">
-                                    <thead>
+                                    <thead class="bg-dark text-white">
                                         <tr>
                                             <th data-toggle="true">Catagory Title</th>
-                                            <th data-toggle="true">Catagory Image</th>
+                                            <th data-toggle="true">Image</th>
                                             <th data-hide="all">Description</th>
                                             <th class="text-right" data-sort-ignore="true">Action</th>
                                         </tr>
