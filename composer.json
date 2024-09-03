@@ -1,0 +1,6 @@
+{
+    "require": {
+        "stripe/stripe-php": "^15.8",
+        "phpmailer/phpmailer": "^6.9"
+    }
+}
