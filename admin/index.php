@@ -36,6 +36,7 @@ session_start();
             <div class="mb-3 text center">
                 <h3 class="text-danger"><?php if (isset($_SESSION['response'])) {
                                             echo htmlspecialchars($_SESSION['response']);
+                                            unset($_SESSION['response']);
                                         } else {
                                         }
                                         ?></h3>

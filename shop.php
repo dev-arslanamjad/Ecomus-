@@ -62,8 +62,8 @@ $result = mysqli_query($conn, $sql);
                         </div>
                     </div>
                     <div class="card-product-info">
-                        <a href="product_detail.php?id=<?php echo $row['id']; ?>&<?php echo $row['slug']; ?>" class="title link"><?php echo $row['name'] ?></a>
-                        <span class="price"><?php echo $row['price'] ?>$</span>
+                        <a href="product_detail.php?id=<?php echo $row['id']; ?>&<?php echo $row['slug']; ?>" class="title link"><b><?php echo $row['name'] ?></b></a>
+                        <span class="price"><?php echo $row['price'] ?>.00$</span>
                         <p class="description"><?php echo substr($row['discription'], 0, 100) . '...'; ?></p>
                         <p class="description"></p>
                     </div>

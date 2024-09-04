@@ -256,7 +256,7 @@ if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']) {
                         </div>
                     </div>
                     <div class="card-product-info">
-                        <a href="product_detail.php?id=<?php echo $row['id']; ?>&<?php echo $row['slug']; ?>" class="title link"><?php echo $row['name']; ?><span> - <?php echo $row['model']; ?></span></a>
+                        <a href="product_detail.php?id=<?php echo $row['id']; ?>&<?php echo $row['slug']; ?>" class="title link"><b><?php echo $row['name']; ?></b><span> - <?php echo $row['model']; ?></span></a>
                         <span class="price"><?php echo $row['price']; ?>.00$</span>
                         <?php if ($row['available'] == 'Yes') { ?>
                             <span class="badge bg-success text-white" style="width: 70px;">Available</span>
@@ -308,7 +308,7 @@ if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']) {
 
                                             </div>
                                     </div>
-                                    <button type="submit" class="w-100 tf-btn btn-fill justify-content-center fw-6 fs-16 flex-grow-1 animate-hover-btn btn-add-to-cart"><span>Add to cart - <?php echo $row['price'] ?></span><span class="tf-qty-price">$</span></button>
+                                    <button type="submit" class="w-100 tf-btn btn-fill justify-content-center fw-6 fs-16 flex-grow-1 animate-hover-btn btn-add-to-cart"><span>Add to cart - <?php echo $row['price'] ?></span><span class="tf-qty-price">.00$</span></button>
                                     </form>
                                 </div>
                             </div>

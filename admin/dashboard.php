@@ -32,7 +32,9 @@ include('common/header.php');
             <?php
             if (isset($_SESSION['response'])) { ?>
                 <div class="alert alert-success">
-                    <?php echo $_SESSION['response']; ?>
+                    <?php echo $_SESSION['response'];
+
+                    ?>
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
