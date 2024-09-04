@@ -14,7 +14,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $row = $result->fetch_assoc();
 
             if (password_verify($password, $row['password'])) {
-                echo 'Login successful';
                 $_SESSION['userid'] = $row['id'];
                 $_SESSION['name'] = explode(' ', $row['name'])[0];
                 header('location: index.php');

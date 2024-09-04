@@ -29,9 +29,22 @@ $result = mysqli_query($conn, $sql);
         </div>
     </div>
 </div>
+<?php if (isset($_SESSION['response'])) { ?>
+    <div class="container d-flex justify-content-center">
+        <div class="w-50 alert alert-info" role="alert" id="responseAlert">
+            <?php echo $_SESSION['response']; ?>
+        </div>
+    </div>
+    <script>
+        setTimeout(function() {
+            document.getElementById('responseAlert').style.display = 'none';
+        }, 2000);
+    </script>
+<?php unset($_SESSION['response']);
+} ?>
 
 <?php
-if (!$result) { ?>
+if (mysqli_num_rows($result) == 0) { ?>
     <div class="container-fluid">
         <div class="container text-center" style="margin-block: 100px;">
             <p>Nothing in Orders <span><a class="text-primary" href="products.php">Order Some?</a></span></p>
