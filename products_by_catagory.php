@@ -23,14 +23,14 @@ $catagory_id = $_GET['id'];
                 <i class="icon icon-arrow-right"></i>
                 <a href="#" class="text">Women</a>
             </div>
-            
+
         </div>
     </div>
 </div>
 
 <section class="flat-spacing-1 pt_0">
     <div class="container">
-        <?php 
+        <?php
         $sql = "SELECT name FROM catagory WHERE id = " . mysqli_real_escape_string($conn, $catagory_id);
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
@@ -43,17 +43,17 @@ $catagory_id = $_GET['id'];
                 <div class="swiper-wrapper">
                     <div class="grid-layout loadmore-item" data-grid="grid-4">
                         <?php
-                        
+
                         $sql = "SELECT * FROM products WHERE catagory_id = $catagory_id";
                         $result = mysqli_query($conn, $sql);
-                        while ($row = mysqli_fetch_assoc($result)) { 
-                                $product_id = $row['id'];
-                                $product_name = $row['name'];
-                                $product_image = $row['image'];
-                                $product_model = $row['model'];
-                                $product_price = $row['price'];
-                            
-                            ?>
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $product_id = $row['id'];
+                            $product_name = $row['name'];
+                            $product_image = $row['image'];
+                            $product_model = $row['model'];
+                            $product_price = $row['price'];
+
+                        ?>
                             <form action="addtocartcode.php" method="post">
                                 <input type="hidden" name="product_id" value="<?php echo $product_id ?>">
                                 <input type="hidden" name="product_name" value="<?php echo $product_name ?>">
@@ -62,7 +62,7 @@ $catagory_id = $_GET['id'];
                                 <input type="hidden" name="product_price" value="<?php echo $product_price ?>">
                                 <div class="card-product">
                                     <div class="card-product-wrapper">
-                                        <a href="product_detail.php?id=<?php echo $product_id;?>" class="product-img">
+                                        <a href="product_detail.php?id=<?php echo $product_id; ?>" class="product-img">
                                             <img class="lazyload img-product" data-src="admin/<?php echo $product_image ?>" src="admin/<?php echo $product_image ?>" alt="image-product" style="width: 300px; height: 300px; object-fit: contain;">
                                             <img class="lazyload img-hover" data-src="admin/<?php echo $product_image ?>" src="admin/<?php echo $product_image ?>" alt="image-product" style="width: 300px; height: 300px; object-fit: contain;">
                                         </a>
@@ -81,17 +81,17 @@ $catagory_id = $_GET['id'];
                                                     <span class="icon icon-bag"></span>
                                                     <span class="tooltip">Quick Add</span>
                                                 </button>
-                                                <a href="product_detail.php?id=<?php echo $product_id;?>" class="box-icon bg_white  tf-btn-loading">
+                                                <a href="product_detail.php?id=<?php echo $product_id; ?>" class="box-icon bg_white  tf-btn-loading">
                                                     <span class="icon icon-bag"></span>
                                                     <span class="tooltip">Quick View</span>
                                                 </a>
-                                                
+
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card-product-info">
-                                        <a href="product_detail.php?id=<?php echo $product_id;?>" class="title link"><b><?php echo $product_name ?></b></a>
-                                        <span href="product_detail.php?id=<?php echo $product_id;?>" class="title link"><?php echo $product_model ?></span>
+                                        <a href="product_detail.php?id=<?php echo $product_id; ?>" class="title link"><b><?php echo $product_name ?></b></a>
+                                        <span href="product_detail.php?id=<?php echo $product_id; ?>" class="title link"><?php echo $product_model ?></span>
                                         <span class="price"><?php echo $product_price ?>$</span>
                                     </div>
                                 </div>
@@ -117,298 +117,28 @@ $catagory_id = $_GET['id'];
         <div class="hover-sw-nav hover-sw-2">
             <div class="swiper tf-sw-recent wrap-sw-over" data-preview="4" data-tablet="3" data-mobile="2" data-space-lg="30" data-space-md="30" data-space="15" data-pagination="1" data-pagination-md="1" data-pagination-lg="1">
                 <div class="swiper-wrapper">
+                    <?php 
+                    $sql= "SELECT * FROM products ORDER BY RAND() LIMIT 6";
+                    $query = mysqli_query($conn, $sql);
+                    while($row = mysqli_fetch_array($query)){
+                        
+                    ?>
                     <div class="swiper-slide" lazy="true">
                         <div class="card-product">
                             <div class="card-product-wrapper">
-                                <a href="product_detail.php?id=<?php echo $product_id;?>" class="product-img">
-                                    <img class="lazyload img-product" data-src="assets/frontend/images/products/light-green-1.jpg" src="assets/frontend/images/products/light-green-1.jpg" alt="image-product">
-                                    <img class="lazyload img-hover" data-src="assets/frontend/images/products/light-green-2.jpg" src="assets/frontend/images/products/light-green-2.jpg" alt="image-product">
+                                <a href="product_detail.php?id=<?php echo $row['id']; ?>&<?php echo $row['slug']?>" class="product-img">
+                                    <img style="width: 300px; height: 300px; object-fit: contain;" class="lazyload img-product" data-src="admin/<?php echo $row['image']?>" src="admin/<?php echo $row['image']?>" alt="image-product">
+                                    <img style="width: 300px; height: 300px; object-fit: contain;" class="lazyload img-hover" data-src="admin/<?php echo $row['image']?>" src="admin/<?php echo $row['image']?>" alt="image-product">
                                 </a>
-                                <div class="list-product-btn absolute-2">
-                                    <a href="#quick_add" data-bs-toggle="modal" class="box-icon bg_white quick-add tf-btn-loading">
-                                        <span class="icon icon-bag"></span>
-                                        <span class="tooltip">Quick Add</span>
-                                    </a>
-                                    <a href="javascript:void(0);" class="box-icon bg_white wishlist btn-icon-action">
-                                        <span class="icon icon-heart"></span>
-                                        <span class="tooltip">Add to Wishlist</span>
-                                        <span class="icon icon-delete"></span>
-                                    </a>
-                                    <a href="#compare" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft" class="box-icon bg_white compare btn-icon-action">
-                                        <span class="icon icon-compare"></span>
-                                        <span class="tooltip">Add to Compare</span>
-                                        <span class="icon icon-check"></span>
-                                    </a>
-                                    <a href="#quick_view" data-bs-toggle="modal" class="box-icon bg_white quickview tf-btn-loading">
-                                        <span class="icon icon-view"></span>
-                                        <span class="tooltip">Quick View</span>
-                                    </a>
-                                </div>
+
                             </div>
                             <div class="card-product-info">
-                                <a href="product_detail.php?id=<?php echo $product_id;?>" class="title link">Loose Fit Sweatshirt</a>
-                                <span class="price">$10.00</span>
-                                <ul class="list-color-product">
-                                    <li class="list-color-item color-swatch active">
-                                        <span class="tooltip">Light Green</span>
-                                        <span class="swatch-value bg_light-green"></span>
-                                        <img class="lazyload" data-src="assets/frontend/images/products/light-green-1.jpg" src="assets/frontend/images/products/light-green-1.jpg" alt="image-product">
-                                    </li>
-                                    <li class="list-color-item color-swatch">
-                                        <span class="tooltip">Black</span>
-                                        <span class="swatch-value bg_dark"></span>
-                                        <img class="lazyload" data-src="assets/frontend/images/products/black-3.jpg" src="assets/frontend/images/products/black-3.jpg" alt="image-product">
-                                    </li>
-                                    <li class="list-color-item color-swatch">
-                                        <span class="tooltip">Blue</span>
-                                        <span class="swatch-value bg_blue-2"></span>
-                                        <img class="lazyload" data-src="assets/frontend/images/products/blue.jpg" src="assets/frontend/images/products/blue.jpg" alt="image-product">
-                                    </li>
-                                    <li class="list-color-item color-swatch">
-                                        <span class="tooltip">Dark Blue</span>
-                                        <span class="swatch-value bg_dark-blue"></span>
-                                        <img class="lazyload" data-src="assets/frontend/images/products/dark-blue.jpg" src="assets/frontend/images/products/dark-blue.jpg" alt="image-product">
-                                    </li>
-                                    <li class="list-color-item color-swatch">
-                                        <span class="tooltip">White</span>
-                                        <span class="swatch-value bg_white"></span>
-                                        <img class="lazyload" data-src="assets/frontend/images/products/white-6.jpg" src="assets/frontend/images/products/white-6.jpg" alt="image-product">
-                                    </li>
-                                    <li class="list-color-item color-swatch">
-                                        <span class="tooltip">Light Grey</span>
-                                        <span class="swatch-value bg_light-grey"></span>
-                                        <img class="lazyload" data-src="assets/frontend/images/products/light-grey.jpg" src="assets/frontend/images/products/light-grey.jpg" alt="image-product">
-                                    </li>
-                                </ul>
+                                <a href="product_detail.php?id=<?php echo $row['id']; ?>&<?php echo $row['slug']?>" class="title link"><b><?php echo $row['name']; ?></b>- <?php echo $row['model']; ?></a>
+                                <span class="price"><?php echo $row['price']; ?>.00$</span>
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide" lazy="true">
-                        <div class="card-product">
-                            <div class="card-product-wrapper">
-                                <a href="product_detail.php?id=<?php echo $product_id;?>" class="product-img">
-                                    <img class="lazyload img-product" data-src="assets/frontend/images/products/brown-2.jpg" src="assets/frontend/images/products/brown-2.jpg" alt="image-product">
-                                    <img class="lazyload img-hover" data-src="assets/frontend/images/products/brown-3.jpg" src="assets/frontend/images/products/brown-3.jpg" alt="image-product">
-                                </a>
-                                <div class="size-list">
-                                    <span>S</span>
-                                    <span>M</span>
-                                    <span>L</span>
-                                    <span>XL</span>
-                                </div>
-                                <div class="list-product-btn">
-                                    <a href="#quick_add" data-bs-toggle="modal" class="box-icon bg_white quick-add tf-btn-loading">
-                                        <span class="icon icon-bag"></span>
-                                        <span class="tooltip">Quick Add</span>
-                                    </a>
-                                    <a href="javascript:void(0);" class="box-icon bg_white wishlist btn-icon-action">
-                                        <span class="icon icon-heart"></span>
-                                        <span class="tooltip">Add to Wishlist</span>
-                                        <span class="icon icon-delete"></span>
-                                    </a>
-                                    <a href="#compare" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft" class="box-icon bg_white compare btn-icon-action">
-                                        <span class="icon icon-compare"></span>
-                                        <span class="tooltip">Add to Compare</span>
-                                        <span class="icon icon-check"></span>
-                                    </a>
-                                    <a href="#quick_view" data-bs-toggle="modal" class="box-icon bg_white quickview tf-btn-loading">
-                                        <span class="icon icon-view"></span>
-                                        <span class="tooltip">Quick View</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="card-product-info">
-                                <a href="product_detail.php?id=<?php echo $product_id;?>" class="title link">V-neck linen T-shirt</a>
-                                <span class="price">$114.95</span>
-                                <ul class="list-color-product">
-                                    <li class="list-color-item color-swatch active">
-                                        <span class="tooltip">Brown</span>
-                                        <span class="swatch-value bg_brown"></span>
-                                        <img class="lazyload" data-src="assets/frontend/images/products/brown-2.jpg" src="assets/frontend/images/products/brown-2.jpg" alt="image-product">
-                                    </li>
-                                    <li class="list-color-item color-swatch">
-                                        <span class="tooltip">White</span>
-                                        <span class="swatch-value bg_white"></span>
-                                        <img class="lazyload" data-src="assets/frontend/images/products/white-5.jpg" src="assets/frontend/images/products/white-5.jpg" alt="image-product">
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide" lazy="true">
-                        <div class="card-product">
-                            <div class="card-product-wrapper">
-                                <a href="product_detail.php?id=<?php echo $product_id;?>" class="product-img">
-                                    <img class="lazyload img-product" data-src="assets/frontend/images/products/white-2.jpg" src="assets/frontend/images/products/white-2.jpg" alt="image-product">
-                                    <img class="lazyload img-hover" data-src="assets/frontend/images/products/pink-1.jpg" src="assets/frontend/images/products/pink-1.jpg" alt="image-product">
-                                </a>
-                                <div class="list-product-btn">
-                                    <a href="#quick_add" data-bs-toggle="modal" class="box-icon bg_white quick-add tf-btn-loading">
-                                        <span class="icon icon-bag"></span>
-                                        <span class="tooltip">Quick Add</span>
-                                    </a>
-                                    <a href="#quick_view" data-bs-toggle="modal" class="box-icon bg_white quickview tf-btn-loading">
-                                        <span class="icon icon-view"></span>
-                                        <span class="tooltip">Quick View</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="card-product-info">
-                                <a href="product_detail.php?id=<?php echo $product_id;?>" class="title">Oversized Printed T-shirt</a>
-                                <span class="price">$16.95</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide" lazy="true">
-                        <div class="card-product">
-                            <div class="card-product-wrapper">
-                                <a href="product_detail.php?id=<?php echo $product_id;?>" class="product-img">
-                                    <img class="lazyload img-product" data-src="assets/frontend/images/products/white-3.jpg" src="assets/frontend/images/products/white-3.jpg" alt="image-product">
-                                    <img class="lazyload img-hover" data-src="assets/frontend/images/products/white-4.jpg" src="assets/frontend/images/products/white-4.jpg" alt="image-product">
-                                </a>
-                                <div class="list-product-btn">
-                                    <a href="#shoppingCart" data-bs-toggle="modal" class="box-icon bg_white quick-add tf-btn-loading">
-                                        <span class="icon icon-bag"></span>
-                                        <span class="tooltip">Add to cart</span>
-                                    </a>
-                                    
-                                    <a href="#quick_view" data-bs-toggle="modal" class="box-icon bg_white quickview tf-btn-loading">
-                                        <span class="icon icon-view"></span>
-                                        <span class="tooltip">Quick View</span>
-                                    </a>
-                                </div>
-                                <div class="size-list">
-                                    <span>S</span>
-                                    <span>M</span>
-                                    <span>L</span>
-                                    <span>XL</span>
-                                </div>
-                            </div>
-                            <div class="card-product-info">
-                                <a href="product_detail.php?id=<?php echo $product_id;?>" class="title link">Oversized Printed T-shirt</a>
-                                <span class="price">$10.00</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide" lazy="true">
-                        <div class="card-product">
-                            <div class="card-product-wrapper">
-                                <a href="product_detail.php?id=<?php echo $product_id;?>" class="product-img">
-                                    <img class="lazyload img-product" data-src="assets/frontend/images/products/brown.jpg" src="assets/frontend/images/products/brown.jpg" alt="image-product">
-                                    <img class="lazyload img-hover" data-src="assets/frontend/images/products/purple.jpg" src="assets/frontend/images/products/purple.jpg" alt="image-product">
-                                </a>
-                                <div class="list-product-btn">
-                                    <a href="#quick_add" data-bs-toggle="modal" class="box-icon bg_white quick-add tf-btn-loading">
-                                        <span class="icon icon-bag"></span>
-                                        <span class="tooltip">Quick Add</span>
-                                    </a>
-                                    <a href="javascript:void(0);" class="box-icon bg_white wishlist btn-icon-action">
-                                        <span class="icon icon-heart"></span>
-                                        <span class="tooltip">Add to Wishlist</span>
-                                        <span class="icon icon-delete"></span>
-                                    </a>
-                                    <a href="#compare" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft" class="box-icon bg_white compare btn-icon-action">
-                                        <span class="icon icon-compare"></span>
-                                        <span class="tooltip">Add to Compare</span>
-                                        <span class="icon icon-check"></span>
-                                    </a>
-                                    <a href="#quick_view" data-bs-toggle="modal" class="box-icon bg_white quickview tf-btn-loading">
-                                        <span class="icon icon-view"></span>
-                                        <span class="tooltip">Quick View</span>
-                                    </a>
-                                </div>
-                                <div class="size-list">
-                                    <span>M</span>
-                                    <span>L</span>
-                                    <span>XL</span>
-                                </div>
-                                <div class="on-sale-wrap">
-                                    <div class="on-sale-item">-33%</div>
-                                </div>
-                                <div class="countdown-box">
-                                    <div class="js-countdown" data-timer="1007500" data-labels="d :,h :,m :,s"></div>
-                                </div>
-                            </div>
-                            <div class="card-product-info">
-                                <a href="product_detail.php?id=<?php echo $product_id;?>" class="title link">Ribbed modal T-shirt</a>
-                                <span class="price">From $18.95</span>
-                                <ul class="list-color-product">
-                                    <li class="list-color-item color-swatch active">
-                                        <span class="tooltip">Brown</span>
-                                        <span class="swatch-value bg_brown"></span>
-                                        <img class="lazyload" data-src="assets/frontend/images/products/brown.jpg" src="assets/frontend/images/products/brown.jpg" alt="image-product">
-                                    </li>
-                                    <li class="list-color-item color-swatch">
-                                        <span class="tooltip">Light Purple</span>
-                                        <span class="swatch-value bg_purple"></span>
-                                        <img class="lazyload" data-src="assets/frontend/images/products/purple.jpg" src="assets/frontend/images/products/purple.jpg" alt="image-product">
-                                    </li>
-                                    <li class="list-color-item color-swatch">
-                                        <span class="tooltip">Light Green</span>
-                                        <span class="swatch-value bg_light-green"></span>
-                                        <img class="lazyload" data-src="assets/frontend/images/products/green.jpg" src="assets/frontend/images/products/green.jpg" alt="image-product">
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide" lazy="true">
-                        <div class="card-product">
-                            <div class="card-product-wrapper">
-                                <a href="product_detail.php?id=<?php echo $product_id;?>" class="product-img">
-                                    <img class="lazyload img-product" data-src="assets/frontend/images/products/orange-1.jpg" src="assets/frontend/images/products/orange-1.jpg" alt="image-product">
-                                    <img class="lazyload img-hover" data-src="assets/frontend/images/products/white-1.jpg" src="assets/frontend/images/products/white-1.jpg" alt="image-product">
-                                </a>
-                                <div class="list-product-btn">
-                                    <a href="#quick_add" data-bs-toggle="modal" class="box-icon bg_white quick-add tf-btn-loading">
-                                        <span class="icon icon-bag"></span>
-                                        <span class="tooltip">Quick Add</span>
-                                    </a>
-                                    <a href="javascript:void(0);" class="box-icon bg_white wishlist btn-icon-action">
-                                        <span class="icon icon-heart"></span>
-                                        <span class="tooltip">Add to Wishlist</span>
-                                        <span class="icon icon-delete"></span>
-                                    </a>
-                                    <a href="#compare" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft" class="box-icon bg_white compare btn-icon-action">
-                                        <span class="icon icon-compare"></span>
-                                        <span class="tooltip">Add to Compare</span>
-                                        <span class="icon icon-check"></span>
-                                    </a>
-                                    <a href="#quick_view" data-bs-toggle="modal" class="box-icon bg_white quickview tf-btn-loading">
-                                        <span class="icon icon-view"></span>
-                                        <span class="tooltip">Quick View</span>
-                                    </a>
-                                </div>
-                                <div class="size-list">
-                                    <span>S</span>
-                                    <span>M</span>
-                                    <span>L</span>
-                                    <span>XL</span>
-                                </div>
-                            </div>
-                            <div class="card-product-info">
-                                <a href="product_detail.php?id=<?php echo $product_id;?>" class="title link">Ribbed Tank Top</a>
-                                <span class="price">$16.95</span>
-                                <ul class="list-color-product">
-                                    <li class="list-color-item color-swatch active">
-                                        <span class="tooltip">Orange</span>
-                                        <span class="swatch-value bg_orange-3"></span>
-                                        <img class="lazyload" data-src="assets/frontend/images/products/orange-1.jpg" src="assets/frontend/images/products/orange-1.jpg" alt="image-product">
-                                    </li>
-                                    <li class="list-color-item color-swatch">
-                                        <span class="tooltip">Black</span>
-                                        <span class="swatch-value bg_dark"></span>
-                                        <img class="lazyload" data-src="assets/frontend/images/products/black-1.jpg" src="assets/frontend/images/products/black-1.jpg" alt="image-product">
-                                    </li>
-                                    <li class="list-color-item color-swatch">
-                                        <span class="tooltip">White</span>
-                                        <span class="swatch-value bg_white"></span>
-                                        <img class="lazyload" data-src="assets/frontend/images/products/white-1.jpg" src="assets/frontend/images/products/white-1.jpg" alt="image-product">
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    <?php }?>
                 </div>
             </div>
             <div class="nav-sw nav-next-slider nav-next-recent box-icon w_46 round"><span class="icon icon-arrow-left"></span></div>

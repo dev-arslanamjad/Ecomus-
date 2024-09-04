@@ -84,7 +84,7 @@ $result = $conn->query($sql);
                                                             ?>
                                                                 <tr>
                                                                     <td><?php echo $row['user_id']; ?></td>
-                                                                    <td><?php echo $row['transaction_id']; ?></td>
+                                                                    <td><?php echo substr($row['transaction_id'], 0 ,17); ?>...</td>
                                                                     <td>$<?php echo number_format($row['total'], 2); ?></td>
                                                                     <?php
                                                                     if ($row['status'] == '0') { ?>

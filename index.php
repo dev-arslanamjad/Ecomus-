@@ -49,7 +49,7 @@ if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']) {
                         <div class="container">
                             <h1 class="fade-item fade-item-1">Glamorous<br>Glam</h1>
                             <p class="fade-item fade-item-2">From casual to formal, we've got you covered</p>
-                            <a href="product-detail.php" class="fade-item fade-item-3 tf-btn btn-fill animate-hover-btn btn-xl radius-3"><span>Shop collection</span><i class="icon icon-arrow-right"></i></a>
+                            <a href="products.php" class="fade-item fade-item-3 tf-btn btn-fill animate-hover-btn btn-xl radius-3"><span>Shop collection</span><i class="icon icon-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -61,7 +61,7 @@ if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']) {
                         <div class="container">
                             <h1 class="fade-item fade-item-1">Simple <br class="md-hidden">Style</h1>
                             <p class="fade-item fade-item-2">From casual to formal, we've got you covered</p>
-                            <a href="shop-default.php" class="fade-item fade-item-3 tf-btn btn-fill animate-hover-btn btn-xl radius-3"><span>Shop collection</span><i class="icon icon-arrow-right"></i></a>
+                            <a href="products.php" class="fade-item fade-item-3 tf-btn btn-fill animate-hover-btn btn-xl radius-3"><span>Shop collection</span><i class="icon icon-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -73,7 +73,7 @@ if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']) {
                         <div class="container">
                             <h1 class="fade-item fade-item-1">Glamorous<br>Glam</h1>
                             <p class="fade-item fade-item-2">From casual to formal, we've got you covered</p>
-                            <a href="shop-default.php" class="fade-item fade-item-3 tf-btn btn-fill animate-hover-btn btn-xl radius-3"><span>Shop collection</span><i class="icon icon-arrow-right"></i></a>
+                            <a href="products.php" class="fade-item fade-item-3 tf-btn btn-fill animate-hover-btn btn-xl radius-3"><span>Shop collection</span><i class="icon icon-arrow-right"></i></a>
                         </div>
                     </div>
 
@@ -493,6 +493,7 @@ if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']) {
                     while ($row = mysqli_fetch_assoc($result)) {
                         $product_id = $row['id'];
                         $product_name  = $row['name'];
+                        $product_slug  = $row['slug'];
                         $product_image = $row['image'];
                         $product_model = $row['model'];
                         $product_discription = $row['discription'];
@@ -518,15 +519,15 @@ if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']) {
                                 </div>
                                 <div class="product">
                                     <div class="image">
-                                        <a href="">
+                                        <a href="product_detail.php?id=<?php echo $product_id; ?>&<?php echo $product_slug;?>">
                                             <img class="lazyload" data-src="admin/<?php echo $product_image; ?>" src="admin/<?php echo $product_image; ?>" alt="">
                                         </a>
                                     </div>
                                     <div class="content-wrap">
                                         <div class="product-title">
-                                            <a href=""><?php echo $product_name; ?></a>
+                                            <a href="product_detail.php?id=<?php echo $product_id; ?>&<?php echo $product_slug;?>"><b><?php echo $product_name; ?></b></a>
                                         </div>
-                                        <div class="price"><?php echo $product_price; ?>.00$</div>
+                                        <span class="price"><?php echo $product_price; ?>.00$</span>
                                     </div>
                                     <a href="product_detail.php?id=<?php echo $product_id; ?>&<?php echo urlencode(strtolower(str_replace(' ', '-', $product_name))); ?>" class=""><i class="icon-arrow1-top-left"></i></a>
                                 </div>
@@ -603,7 +604,7 @@ if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']) {
                             <div class="img-style">
                                 <img class="lazyload img-hover" data-src="assets/frontend/images/shop/gallery/gallery-7.jpg" src="assets/frontend/images/shop/gallery/gallery-7.jpg" alt="image-gallery">
                             </div>
-                            <a href="#quick_add" data-bs-toggle="modal" class="box-icon"><span class="icon icon-bag"></span> <span class="tooltip">Quick Add</span></a>
+                            
                         </div>
                     </div>
                     <div class="swiper-slide">
@@ -611,7 +612,7 @@ if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']) {
                             <div class="img-style">
                                 <img class="lazyload img-hover" data-src="assets/frontend/images/shop/gallery/gallery-3.jpg" src="assets/frontend/images/shop/gallery/gallery-3.jpg" alt="image-gallery">
                             </div>
-                            <a href="#quick_add" data-bs-toggle="modal" class="box-icon"><span class="icon icon-bag"></span> <span class="tooltip">Quick Add</span></a>
+                            
                         </div>
                     </div>
                     <div class="swiper-slide">
@@ -619,7 +620,7 @@ if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']) {
                             <div class="img-style">
                                 <img class="lazyload img-hover" data-src="assets/frontend/images/shop/gallery/gallery-5.jpg" src="assets/frontend/images/shop/gallery/gallery-5.jpg" alt="image-gallery">
                             </div>
-                            <a href="#quick_add" data-bs-toggle="modal" class="box-icon"><span class="icon icon-bag"></span> <span class="tooltip">Quick Add</span></a>
+                            
                         </div>
                     </div>
                     <div class="swiper-slide">
@@ -627,7 +628,7 @@ if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']) {
                             <div class="img-style">
                                 <img class="lazyload img-hover" data-src="assets/frontend/images/shop/gallery/gallery-8.jpg" src="assets/frontend/images/shop/gallery/gallery-8.jpg" alt="image-gallery">
                             </div>
-                            <a href="" class="box-icon"><span class="icon icon-bag"></span> <span class="tooltip">View product</span></a>
+                            
                         </div>
                     </div>
                     <div class="swiper-slide">
@@ -635,7 +636,7 @@ if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']) {
                             <div class="img-style">
                                 <img class="lazyload img-hover" data-src="assets/frontend/images/shop/gallery/gallery-6.jpg" src="assets/frontend/images/shop/gallery/gallery-6.jpg" alt="image-gallery">
                             </div>
-                            <a href="" class="box-icon"><span class="icon icon-bag"></span> <span class="tooltip">View product</span></a>
+                            
                         </div>
                     </div>
                 </div>

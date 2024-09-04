@@ -74,5 +74,4 @@ include('templates/footer.php')
 include('templates/footerscripts.php')
 ?>
 </body>
-
 </html>

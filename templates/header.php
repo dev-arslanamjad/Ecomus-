@@ -77,14 +77,12 @@ include('templates/headlinks.php')
                                 <li class="menu-item">
                                     <a href="index.php" class="item-link">Home</a>
                                 </li>
-                                <li class="menu-item">
-                                    <a href="shop.php" class="item-link">Shop</a>
-                                </li>
+                                
                                 <li class="menu-item">
                                     <a href="products.php" class="item-link">Products</a>
                                 </li>
 
-                                <li class="menu-item"><a href="products.php" class="item-link">Buy now</a></li>
+                                <li class="menu-item"><a href="categories.php" class="item-link">Categories</a></li>
                             </ul>
                         </nav>
                     </div>
